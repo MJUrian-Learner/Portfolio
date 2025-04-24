@@ -30,16 +30,15 @@ const Navigation = () => {
               >
                 MJ<span className="text-zinc-200">Portfolio</span>
               </Link>
-              <nav>
+              <nav className="flex">
                 {NAVIGATION_MENU.map((item) => (
-                  <motion.button
-                    className="transition-all"
+                  <motion.div
                     key={item.id}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Button className="">{item.label}</Button>
-                  </motion.button>
+                    <Button>{item.label}</Button>
+                  </motion.div>
                 ))}
               </nav>
               <div className="flex items-center gap-2">
