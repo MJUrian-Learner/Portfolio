@@ -38,7 +38,7 @@ const Navigation = () => {
               </Link>
               <nav className="hidden sm:flex items-center space-x-1 pb-1 max-w-[500px] md:max-w-none">
                 {NAVIGATION_MENU.map((item) => (
-                  <motion.button
+                  <motion.div
                     key={item.id}
                     whileHover={{ scale: 1.05 }}
                     className="transition-all"
@@ -53,7 +53,7 @@ const Navigation = () => {
                     >
                       {item.label}
                     </Button>
-                  </motion.button>
+                  </motion.div>
                 ))}
               </nav>
               <div className="flex items-center gap-2">
