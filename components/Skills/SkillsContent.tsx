@@ -7,7 +7,7 @@ import { AnimatePresence, motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
 import { Badge } from "../ui/badge";
 
-const InteractiveSkillsShowcase = () => {
+const SkillsContent = () => {
   const { theme } = useTheme();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
@@ -164,4 +164,4 @@ const InteractiveSkillsShowcase = () => {
   );
 };
 
-export default InteractiveSkillsShowcase;
+export default SkillsContent;

@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import SectionHeading from "../SectionHeading";
 import { useTheme } from "@/hooks/useTheme";
-import InteractiveSkillsShowcase from "./InteractiveSkillsShowcase";
+import InteractiveSkillsShowcase from "./SkillsContent";
 
 const Skills = () => {
   const { setActiveSection } = useActiveSection();
