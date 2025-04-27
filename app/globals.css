@@ -58,10 +58,10 @@
   --popover-foreground: oklch(0.962 0 89.876);
 
   /* Theme Colors */
-  --crimson: oklch(0.644 0.216 16.808);
+  /* --crimson: oklch(0.644 0.216 16.808);
   --sapphire: oklch(0.626 0.186 259.596);
   --amber: oklch(0.77 0.165 70.606);
-  --mint: oklch(0.782 0.211 149.303);
+  --mint: oklch(0.782 0.211 149.303); */
 
   --primary: oklch(0.69 0.148 162.368);
   --primary-foreground: oklch(0.142 0.004 285.819);
@@ -100,7 +100,7 @@
   }
 
   /* Custom scrollbar */
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     width: 4px;
   }
 
@@ -115,7 +115,7 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(16, 185, 129, 0.8);
-  }
+  } */
 }
 
 html {
