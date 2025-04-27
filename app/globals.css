@@ -100,10 +100,10 @@
   }
 
   /* Custom scrollbar */
-  /* ::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 4px;
   }
-
+  /*
   ::-webkit-scrollbar-track {
     background: rgba(15, 15, 15, 0.5);
   }
