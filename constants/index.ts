@@ -296,3 +296,244 @@ export const SKILL_CATEGORIES = {
     ],
   },
 };
+
+export const CaTEGORIES = [
+  { id: "all", label: "All Projects" },
+  { id: "web", label: "Web Development" },
+  { id: "data", label: "Data Visualization" },
+  { id: "ai", label: "AI & ML" },
+  { id: "interactive", label: "3D & Interactive" },
+];
+
+export const PROJECTS = [
+  {
+    title: "Immersive Portfolio",
+    description:
+      "A 3D interactive portfolio experience built with Three.js and React.",
+    image: "/placeholder.svg?height=600&width=800",
+    tags: ["React", "Three.js", "GSAP", "WebGL"],
+    categories: ["web", "interactive"],
+    role: "Lead Developer",
+    challenge:
+      "Creating an immersive 3D experience that's both performant and accessible across devices.",
+    solution:
+      "Implemented progressive enhancement to ensure core content is accessible on all devices while providing enhanced 3D features for capable browsers.",
+    features: [
+      "Interactive 3D environment",
+      "Optimized performance",
+      "Responsive design",
+      "Accessibility features",
+      "Custom animations",
+    ],
+    architecture: {
+      description:
+        "The application uses a component-based architecture with React for UI and Three.js for 3D rendering. Data flows from the state management layer to the rendering components, with optimizations for performance.",
+      diagram: `
+        graph TD;
+          A["User Interface<br/>(React Components)"] --> B["State Management<br/>(Context API)"];
+          B --> C["3D Scene Controller"];
+          C --> D["Three.js Renderer"];
+          C --> E["Asset Loader"];
+          E --> F["3D Models & Textures"];
+          B --> G["Animation System<br/>(GSAP)"];
+          G --> D;
+          H["User Interactions"] --> A;
+          I["Responsive Layout System"] --> A;
+      `,
+      components: [
+        {
+          name: "UI Layer",
+          description: "React components for user interface elements",
+        },
+        {
+          name: "State Management",
+          description: "Context API for managing application state",
+        },
+        {
+          name: "3D Controller",
+          description: "Manages the Three.js scene and camera",
+        },
+        {
+          name: "Asset Management",
+          description: "Handles loading and optimization of 3D assets",
+        },
+        {
+          name: "Animation System",
+          description: "GSAP integration for smooth animations",
+        },
+      ],
+    },
+  },
+  {
+    title: "E-Commerce Platform",
+    description:
+      "A full-featured online store with cart, checkout, and payment integration.",
+    image: "/placeholder.svg?height=600&width=800",
+    tags: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
+    categories: ["web", "ecommerce"],
+    role: "Frontend Developer",
+    challenge:
+      "Building a seamless checkout experience with complex state management.",
+    solution:
+      "Implemented a robust state management system with React Context and custom hooks to handle the shopping cart and checkout flow.",
+    features: [
+      "Product catalog",
+      "Shopping cart",
+      "Secure checkout",
+      "Payment processing",
+      "Order management",
+    ],
+    architecture: {
+      description:
+        "The e-commerce platform uses a Next.js application with server-side rendering for SEO and performance. It integrates with a headless CMS for product management and Stripe for payment processing.",
+      diagram: `
+        graph TD;
+          A["Client Side<br/>(Next.js App)"] --> B["Server Side<br/>(Next.js API Routes)"];
+          B --> C["Database<br/>(PostgreSQL)"];
+          B --> D["Payment Gateway<br/>(Stripe API)"];
+          E["CMS<br/>(Headless)"] --> B;
+          B --> F["Authentication<br/>(NextAuth.js)"];
+          G["Product Catalog"] --> A;
+          H["Shopping Cart<br/>(Local Storage)"] --> A;
+          I["Checkout Flow"] --> A;
+          I --> D;
+      `,
+      components: [
+        {
+          name: "Frontend",
+          description: "Next.js with TypeScript and Tailwind CSS",
+        },
+        {
+          name: "API Layer",
+          description: "Next.js API routes for server-side operations",
+        },
+        {
+          name: "Database",
+          description: "PostgreSQL for storing product and order data",
+        },
+        {
+          name: "Payment Processing",
+          description: "Stripe integration for secure payments",
+        },
+        {
+          name: "CMS Integration",
+          description: "Headless CMS for content management",
+        },
+      ],
+    },
+  },
+  {
+    title: "AI Content Generator",
+    description:
+      "An AI-powered application that generates custom content for various purposes.",
+    image: "/placeholder.svg?height=600&width=800",
+    tags: ["React", "Node.js", "OpenAI API", "MongoDB"],
+    categories: ["ai", "web"],
+    role: "Full Stack Developer",
+    challenge:
+      "Optimizing API usage to balance cost and performance while providing a responsive user experience.",
+    solution:
+      "Developed a caching system and implemented request throttling to optimize API usage while maintaining a responsive interface.",
+    features: [
+      "AI-powered generation",
+      "Content templates",
+      "User accounts",
+      "Content history",
+      "Export options",
+    ],
+    architecture: {
+      description:
+        "This application uses a React frontend with a Node.js backend that interfaces with the OpenAI API. It implements caching and request optimization to manage API costs and improve performance.",
+      diagram: `
+        graph TD;
+          A["Frontend<br/>(React)"] --> B["Backend API<br/>(Node.js/Express)"];
+          B --> C["AI Service<br/>(OpenAI API)"];
+          B --> D["Cache Layer<br/>(Redis)"];
+          B --> E["Database<br/>(MongoDB)"];
+          F["Authentication<br/>(JWT)"] --> B;
+          G["Rate Limiter"] --> B;
+          H["Content Templates"] --> B;
+          I["Export Service"] --> B;
+      `,
+      components: [
+        {
+          name: "Frontend",
+          description: "React application with modern UI components",
+        },
+        {
+          name: "Backend API",
+          description: "Node.js/Express server handling requests",
+        },
+        {
+          name: "AI Integration",
+          description: "OpenAI API with prompt engineering",
+        },
+        {
+          name: "Caching System",
+          description: "Redis for caching frequent requests",
+        },
+        {
+          name: "Database",
+          description: "MongoDB for user data and content storage",
+        },
+      ],
+    },
+  },
+  {
+    title: "Interactive Data Visualization",
+    description:
+      "A dashboard for visualizing complex datasets with interactive charts and filters.",
+    image: "/placeholder.svg?height=600&width=800",
+    tags: ["D3.js", "React", "TypeScript", "Firebase"],
+    categories: ["data", "interactive"],
+    role: "Data Visualization Specialist",
+    challenge:
+      "Rendering complex visualizations with large datasets without impacting performance.",
+    solution:
+      "Implemented data sampling and progressive loading techniques to handle large datasets efficiently.",
+    features: [
+      "Interactive charts",
+      "Real-time updates",
+      "Data filtering",
+      "Export capabilities",
+      "Responsive design",
+    ],
+    architecture: {
+      description:
+        "The dashboard uses React with D3.js for visualization and Firebase for real-time data. It implements data sampling and virtualization techniques to handle large datasets efficiently.",
+      diagram: `
+        graph TD;
+          A["UI Components<br/>(React)"] --> B["Visualization Layer<br/>(D3.js)"];
+          C["Data Processing<br/>(Web Workers)"] --> B;
+          D["Data Source<br/>(Firebase)"] --> C;
+          E["Filter Engine"] --> C;
+          F["Export Module"] --> A;
+          G["Real-time Updates"] --> D;
+          H["Data Sampling"] --> C;
+          I["Virtualization"] --> A;
+      `,
+      components: [
+        {
+          name: "UI Framework",
+          description: "React with TypeScript for type safety",
+        },
+        {
+          name: "Visualization Engine",
+          description: "D3.js for custom interactive charts",
+        },
+        {
+          name: "Data Processing",
+          description: "Web Workers for background processing",
+        },
+        {
+          name: "Real-time Database",
+          description: "Firebase for live data updates",
+        },
+        {
+          name: "Optimization Layer",
+          description: "Data sampling and virtualization",
+        },
+      ],
+    },
+  },
+];
