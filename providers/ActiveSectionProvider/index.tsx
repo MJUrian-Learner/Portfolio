@@ -2,7 +2,7 @@
 
 import React, { createContext, useState, ReactNode } from "react";
 
-type SectionId =
+export type SectionId =
   | "hero"
   | "about"
   | "creds"
@@ -12,8 +12,8 @@ type SectionId =
   | "contact";
 
 interface ActiveSectionContextValue {
-  active: SectionId;
-  setActive: (id: SectionId) => void;
+  activeSection: SectionId;
+  setActiveSection: (id: SectionId) => void;
 }
 
 export const ActiveSectionContext = createContext<
@@ -21,9 +21,9 @@ export const ActiveSectionContext = createContext<
 >(undefined);
 
 export function ActiveSectionProvider({ children }: { children: ReactNode }) {
-  const [active, setActive] = useState<SectionId>("hero");
+  const [activeSection, setActiveSection] = useState<SectionId>("hero");
 
-  const value: ActiveSectionContextValue = { active, setActive };
+  const value: ActiveSectionContextValue = { activeSection, setActiveSection };
 
   return (
     <ActiveSectionContext.Provider value={value}>
