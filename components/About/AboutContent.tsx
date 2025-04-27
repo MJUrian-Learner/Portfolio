@@ -1,13 +1,11 @@
 "use client";
 
-import { useTheme } from "@/hooks/useTheme";
-import { useInView } from "motion/react";
-import React, { useRef } from "react";
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
+import SectionHeading from "../SectionHeading";
 import { Button } from "../ui/button";
 
 const AboutContent = () => {
-  const { theme } = useTheme();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
   return (
@@ -18,14 +16,7 @@ const AboutContent = () => {
       transition={{ duration: 0.8 }}
       className="space-y-6"
     >
-      <div className="mb-8">
-        <h2 className="text-3xl font-bold text-white inline-block relative">
-          About Me
-          <span
-            className={`absolute -bottom-2 left-0 w-1/2 h-1 bg-gradient-to-r ${theme.secondary} rounded-full`}
-          />
-        </h2>
-      </div>
+      <SectionHeading>About Me</SectionHeading>
       <div className="space-y-4">
         <p className="text-lg text-zinc-300">
           I&apos;m a creative developer who thrives at the intersection of
