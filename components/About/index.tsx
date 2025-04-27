@@ -16,7 +16,7 @@ const About = () => {
       onViewportEnter={() => setActiveSection("about")}
       viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >
-      <DiagonalBackground clip="polygon(0 0, 100% 0, 70% 100%, 0 100%)" />
+      <DiagonalBackground side="left" />
       <div className="container px-4 md:px-6 relative z-10">
         <div className="grid sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 md:gap-12 items-center">
           <div className="sm:col-span-1 md:col-span-2 md:order-1 order-2">
