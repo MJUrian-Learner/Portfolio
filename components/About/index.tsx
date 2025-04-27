@@ -1,13 +1,20 @@
+"use client";
+
 import React from "react";
 import DiagonalBackground from "../DiagonalBackground";
 import AboutImage from "./AboutImage";
 import AboutContent from "./AboutContent";
+import { motion } from "motion/react";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 const About = () => {
+  const { setActiveSection } = useActiveSection();
   return (
-    <section
+    <motion.section
       id="about"
-      className="relative min-h-screen flex items-center py-20"
+      className="relative min-h-dvh flex items-center py-20"
+      onViewportEnter={() => setActiveSection("about")}
+      viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >
       <DiagonalBackground clip="polygon(0 0, 100% 0, 70% 100%, 0 100%)" />
       <div className="container px-4 md:px-6 relative z-10">
@@ -20,7 +27,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

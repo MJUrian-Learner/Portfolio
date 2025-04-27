@@ -1,18 +1,20 @@
 "use client";
 
-import React from "react";
 import { motion } from "motion/react";
-import { Button } from "../ui/button";
-import GridLines from "./GridLines";
+import ScrollDownButton from "../ScrollDownButton";
 import Copywrite from "./Copywrite";
+import GridLines from "./GridLines";
 import HeroImage from "./HeroImage";
-import Link from "next/link";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
 const Hero = () => {
+  const { setActiveSection } = useActiveSection();
   return (
-    <section
+    <motion.section
       id="hero"
       className="relative min-h-dvh flex items-center justify-center overflow-hidden pt-16"
+      onViewportEnter={() => setActiveSection("hero")}
+      viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >
       <GridLines />
 
@@ -28,13 +30,9 @@ const Hero = () => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
       >
-        <Link href="#about">
-          <Button variant="ghost" className="text-zinc-500 hover:text-zinc-300">
-            Scroll Down
-          </Button>
-        </Link>
+        <ScrollDownButton to="#about" item="about" />
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 
