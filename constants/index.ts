@@ -537,3 +537,54 @@ export const PROJECTS = [
     },
   },
 ];
+
+export const BLOG_POSTS = [
+  {
+    title: "Building Immersive 3D Experiences with Three.js and React",
+    description:
+      "Learn how to create engaging 3D web experiences by combining the power of Three.js with React's component-based architecture.",
+    date: "May 15, 2023",
+    readTime: "8 min read",
+    image: "/placeholder.svg?height=400&width=600",
+    category: "Web Development",
+    comments: 12,
+    likes: 48,
+    views: 1250,
+  },
+  {
+    title: "The Future of Web Animation: Beyond CSS Transitions",
+    description:
+      "Explore advanced animation techniques using Framer Motion, GSAP, and other modern libraries to create stunning web animations.",
+    date: "April 22, 2023",
+    readTime: "6 min read",
+    image: "/placeholder.svg?height=400&width=600",
+    category: "Design",
+    comments: 8,
+    likes: 36,
+    views: 980,
+  },
+  {
+    title: "Optimizing React Performance: Advanced Techniques",
+    description:
+      "Dive deep into React optimization strategies including memoization, virtualization, and code splitting to build lightning-fast applications.",
+    date: "March 10, 2023",
+    readTime: "10 min read",
+    image: "/placeholder.svg?height=400&width=600",
+    category: "Performance",
+    comments: 15,
+    likes: 62,
+    views: 1820,
+  },
+  {
+    title: "Creating Accessible UI Components from Scratch",
+    description:
+      "Learn how to build fully accessible UI components that comply with WCAG guidelines while maintaining visual appeal.",
+    date: "February 28, 2023",
+    readTime: "7 min read",
+    image: "/placeholder.svg?height=400&width=600",
+    category: "Accessibility",
+    comments: 6,
+    likes: 29,
+    views: 750,
+  },
+];
