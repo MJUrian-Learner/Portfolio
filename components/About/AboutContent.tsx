@@ -47,9 +47,7 @@ const AboutContent = () => {
       </div>
 
       <div className="pt-4">
-        <Button className="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700">
-          Download Resume
-        </Button>
+        <Button size="lg">Download CV</Button>
       </div>
     </motion.div>
   );
