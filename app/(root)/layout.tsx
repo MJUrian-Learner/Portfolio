@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { ActiveSectionProvider } from "@/providers/ActiveSectionProvider";
 import { ThemeProvider } from "@/providers/ThemeProvider";
@@ -12,6 +13,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         <ActiveSectionProvider>
           <Navigation />
           {children}
+          <Footer />
         </ActiveSectionProvider>
       </ThemeProvider>
     </>
