@@ -4,8 +4,10 @@ import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import SectionHeading from "../SectionHeading";
 import { Button } from "../ui/button";
+import { useTheme } from "@/hooks/useTheme";
 
 const AboutContent = () => {
+  const { theme } = useTheme();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
   return (
@@ -38,7 +40,16 @@ const AboutContent = () => {
       </div>
 
       <div className="pt-4">
-        <Button size="lg">Download CV</Button>
+        <Button
+          size="lg"
+          variant="outline"
+          className={`${theme.border} ${theme.accent.replace(
+            "text-",
+            "text-"
+          )} ${theme.hover}`}
+        >
+          Download CV
+        </Button>
       </div>
     </motion.div>
   );
