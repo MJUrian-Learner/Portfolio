@@ -6,6 +6,7 @@ import { useTheme } from "@/hooks/useTheme";
 import SectionHeading from "../SectionHeading";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import BlogContent from "./BlogContent";
+import ScrollDownButton from "../ScrollDownButton";
 
 const Blog = () => {
   const { theme } = useTheme();
@@ -14,7 +15,7 @@ const Blog = () => {
   return (
     <motion.section
       id="blog"
-      className="relative min-h-screen flex items-center py-20"
+      className="relative min-h-screen flex items-center py-30"
       onViewportEnter={() => setActiveSection("blog")}
       viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >
@@ -33,6 +34,13 @@ const Blog = () => {
         <SectionHeading>Latest Articles</SectionHeading>
         <BlogContent />
       </div>
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+      >
+        <ScrollDownButton to="#contact" item="contact" />
+      </motion.div>
     </motion.section>
   );
 };

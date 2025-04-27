@@ -6,6 +6,7 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 import SectionHeading from "../SectionHeading";
 import { useTheme } from "@/hooks/useTheme";
 import InteractiveSkillsShowcase from "./SkillsContent";
+import ScrollDownButton from "../ScrollDownButton";
 
 const Skills = () => {
   const { setActiveSection } = useActiveSection();
@@ -14,7 +15,7 @@ const Skills = () => {
   return (
     <motion.section
       id="skills"
-      className="relative min-h-screen flex items-center py-20"
+      className="relative min-h-screen flex items-center py-30"
       onViewportEnter={() => setActiveSection("skills")}
       viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >
@@ -30,6 +31,13 @@ const Skills = () => {
         <SectionHeading>Tech Expertise</SectionHeading>
         <InteractiveSkillsShowcase />
       </div>
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+      >
+        <ScrollDownButton to="#projects" item="projects" />
+      </motion.div>
     </motion.section>
   );
 };

@@ -6,6 +6,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { motion } from "motion/react";
 import ProjectsConent from "./ProjectsConent";
+import ScrollDownButton from "../ScrollDownButton";
 
 const Projects = () => {
   const { theme } = useTheme();
@@ -13,7 +14,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="relative min-h-screen flex items-center py-20"
+      className="relative min-h-screen flex items-center py-30"
       onViewportEnter={() => setActiveSection("projects")}
       viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >
@@ -32,6 +33,13 @@ const Projects = () => {
         <SectionHeading>Featured Work</SectionHeading>
         <ProjectsConent />
       </div>
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+      >
+        <ScrollDownButton to="#blog" item="blog" />
+      </motion.div>
     </motion.section>
   );
 };

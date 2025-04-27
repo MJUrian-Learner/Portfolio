@@ -6,6 +6,7 @@ import AboutImage from "./AboutImage";
 import AboutContent from "./AboutContent";
 import { motion } from "motion/react";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import ScrollDownButton from "../ScrollDownButton";
 
 const About = () => {
   const { setActiveSection } = useActiveSection();
@@ -27,6 +28,13 @@ const About = () => {
           </div>
         </div>
       </div>
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+      >
+        <ScrollDownButton to="#credentials" item="credentials" />
+      </motion.div>
     </motion.section>
   );
 };
