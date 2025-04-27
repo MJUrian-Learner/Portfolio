@@ -14,7 +14,7 @@ const Projects = () => {
     <motion.section
       id="projects"
       className="relative min-h-screen flex items-center py-20"
-      onViewportEnter={() => setActiveSection("about")}
+      onViewportEnter={() => setActiveSection("projects")}
       viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >
       {/* Section background */}

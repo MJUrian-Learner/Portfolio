@@ -12,7 +12,7 @@ const Credentials = () => {
     <motion.section
       id="credentials"
       className="relative min-h-dvh flex items-center py-20"
-      onViewportEnter={() => setActiveSection("about")}
+      onViewportEnter={() => setActiveSection("creds")}
       viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >
       <DiagonalBackground side="right" />
