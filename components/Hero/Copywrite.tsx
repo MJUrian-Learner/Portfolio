@@ -4,6 +4,7 @@ import { Badge } from "../ui/badge";
 import { useTheme } from "@/hooks/useTheme";
 import { Button } from "../ui/button";
 import { Rocket } from "lucide-react";
+import Link from "next/link";
 
 const Copywrite = () => {
   const { theme } = useTheme();
@@ -52,36 +53,33 @@ const Copywrite = () => {
         transition={{ delay: 0.9 }}
         className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
       >
-        <Button
-          className={`${theme.highlight} hover:opacity-90 text-zinc-950 group relative overflow-hidden`}
-          // onMouseEnter={() => setCursorHover(true)}
-          // onMouseLeave={() => setCursorHover(false)}
-          // onClick={() => navigateToSection("projects")}
-        >
-          <span className="relative z-10 flex items-center gap-2">
-            View My Portfolio{" "}
-            <Rocket
-              size={16}
-              className="group-hover:translate-x-1 transition-transform"
+        <Link href="#projects">
+          <Button
+            className={`${theme.highlight} hover:opacity-90 text-zinc-950 group relative overflow-hidden`}
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              View My Portfolio{" "}
+              <Rocket
+                size={16}
+                className="group-hover:translate-x-1 transition-transform"
+              />
+            </span>
+            <span
+              className={`absolute inset-0 bg-gradient-to-r ${theme.secondary} opacity-0 group-hover:opacity-100 transition-opacity`}
             />
-          </span>
-          <span
-            className={`absolute inset-0 bg-gradient-to-r ${theme.secondary} opacity-0 group-hover:opacity-100 transition-opacity`}
-          />
-        </Button>
-
-        <Button
-          variant="outline"
-          className={`${theme.border} ${theme.accent.replace(
-            "text-",
-            "text-"
-          )} ${theme.hover}`}
-          // onMouseEnter={() => setCursorHover(true)}
-          // onMouseLeave={() => setCursorHover(false)}
-          // onClick={() => navigateToSection("contact")}
-        >
-          Let&apos;s Collaborate
-        </Button>
+          </Button>
+        </Link>
+        <Link href="#contact">
+          <Button
+            variant="outline"
+            className={`${theme.border} ${theme.accent.replace(
+              "text-",
+              "text-"
+            )} ${theme.hover}`}
+          >
+            Let&apos;s Collaborate
+          </Button>
+        </Link>
       </motion.div>
     </motion.div>
   );
