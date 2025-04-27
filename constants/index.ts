@@ -1,3 +1,5 @@
+import { Code, Database, Paintbrush, Wrench } from "lucide-react";
+
 export const NAVIGATION_MENU = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
@@ -68,5 +70,229 @@ export const COLOR_THEMES = {
     cursor: "bg-green-400",
     highlight: "bg-green-500",
     muted: "text-green-300/70",
+  },
+};
+
+export const SKILL_CATEGORIES = {
+  frontend: {
+    icon: Code,
+    title: "Frontend Development",
+    description:
+      "Creating responsive, interactive user interfaces with modern frameworks and libraries.",
+    skills: [
+      {
+        name: "React",
+        icon: "⚛️",
+        level: 90,
+        description:
+          "Building complex component-based UIs with React hooks and context API.",
+        projects: ["Portfolio Website", "E-commerce Platform", "Dashboard UI"],
+      },
+      {
+        name: "Next.js",
+        icon: "▲",
+        level: 85,
+        description:
+          "Developing server-rendered React applications with optimized performance.",
+        projects: ["Corporate Website", "Blog Platform", "Marketing Site"],
+      },
+      {
+        name: "TypeScript",
+        icon: "TS",
+        level: 80,
+        description:
+          "Writing type-safe code to reduce bugs and improve developer experience.",
+        projects: ["Financial Dashboard", "API Integration", "Form Library"],
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "🌊",
+        level: 95,
+        description: "Creating custom designs with utility-first CSS approach.",
+        projects: ["Design System", "Marketing Pages", "Admin Dashboard"],
+      },
+      {
+        name: "JavaScript",
+        icon: "JS",
+        level: 90,
+        description:
+          "Implementing complex logic and interactive features with modern JavaScript.",
+        projects: [
+          "Interactive Maps",
+          "Data Visualization",
+          "Animation Library",
+        ],
+      },
+      {
+        name: "Framer Motion",
+        icon: "🔄",
+        level: 75,
+        description:
+          "Creating fluid animations and transitions for enhanced user experience.",
+        projects: ["Product Showcase", "Interactive Tutorial", "Mobile App UI"],
+      },
+    ],
+  },
+  backend: {
+    icon: Database,
+    title: "Backend Development",
+    description:
+      "Building robust server-side applications and APIs to power web experiences.",
+    skills: [
+      {
+        name: "Node.js",
+        icon: "🟢",
+        level: 85,
+        description:
+          "Creating scalable server-side applications with JavaScript.",
+        projects: ["REST API", "Authentication Service", "Payment Gateway"],
+      },
+      {
+        name: "Express",
+        icon: "🚂",
+        level: 80,
+        description:
+          "Building flexible web applications and APIs with minimal overhead.",
+        projects: ["E-commerce Backend", "Content API", "User Management"],
+      },
+      {
+        name: "MongoDB",
+        icon: "🍃",
+        level: 75,
+        description: "Designing and implementing NoSQL database solutions.",
+        projects: ["Content Management", "User Profiles", "Analytics Platform"],
+      },
+      {
+        name: "PostgreSQL",
+        icon: "🐘",
+        level: 70,
+        description:
+          "Working with relational databases for data-intensive applications.",
+        projects: [
+          "Financial System",
+          "Inventory Management",
+          "Reporting Tool",
+        ],
+      },
+      {
+        name: "GraphQL",
+        icon: "◢",
+        level: 65,
+        description:
+          "Creating flexible APIs with precise data fetching capabilities.",
+        projects: [
+          "Content Platform",
+          "Social Network API",
+          "Dashboard Backend",
+        ],
+      },
+    ],
+  },
+  design: {
+    icon: Paintbrush,
+    title: "Design & Creative",
+    description:
+      "Crafting visually appealing and user-friendly interfaces with attention to detail.",
+    skills: [
+      {
+        name: "UI/UX Design",
+        icon: "🎨",
+        level: 85,
+        description:
+          "Creating intuitive and aesthetically pleasing user interfaces.",
+        projects: [
+          "Mobile App Redesign",
+          "Web Application UI",
+          "Design System",
+        ],
+      },
+      {
+        name: "Figma",
+        icon: "F",
+        level: 90,
+        description: "Designing and prototyping interfaces collaboratively.",
+        projects: [
+          "E-commerce Prototype",
+          "Design System",
+          "Mobile App Wireframes",
+        ],
+      },
+      {
+        name: "Adobe XD",
+        icon: "Xd",
+        level: 75,
+        description:
+          "Creating interactive prototypes and design specifications.",
+        projects: ["Marketing Website", "Dashboard UI", "Mobile App Design"],
+      },
+      {
+        name: "Motion Design",
+        icon: "🎬",
+        level: 70,
+        description:
+          "Designing animations and transitions for enhanced user experience.",
+        projects: [
+          "Product Animations",
+          "Onboarding Flow",
+          "Interactive Elements",
+        ],
+      },
+    ],
+  },
+  tools: {
+    icon: Wrench,
+    title: "Tools & Workflow",
+    description:
+      "Utilizing modern development tools and practices for efficient collaboration and delivery.",
+    skills: [
+      {
+        name: "Git & GitHub",
+        icon: "🔄",
+        level: 90,
+        description:
+          "Managing code versions and collaborating with development teams.",
+        projects: [
+          "Open Source Contribution",
+          "Team Collaboration",
+          "CI/CD Setup",
+        ],
+      },
+      {
+        name: "VS Code",
+        icon: "📝",
+        level: 95,
+        description:
+          "Leveraging editor extensions and customizations for productivity.",
+        projects: [
+          "Custom Snippets",
+          "Workspace Setup",
+          "Extension Development",
+        ],
+      },
+      {
+        name: "Docker",
+        icon: "🐳",
+        level: 75,
+        description:
+          "Containerizing applications for consistent development and deployment.",
+        projects: [
+          "Microservices Architecture",
+          "Development Environment",
+          "Deployment Pipeline",
+        ],
+      },
+      {
+        name: "CI/CD",
+        icon: "🔄",
+        level: 80,
+        description:
+          "Automating testing and deployment processes for reliable delivery.",
+        projects: [
+          "GitHub Actions Workflow",
+          "Automated Testing",
+          "Deployment Automation",
+        ],
+      },
+    ],
   },
 };
