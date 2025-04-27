@@ -14,10 +14,11 @@ import {
 import { Palette } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import { SectionId } from "@/providers/ActiveSectionProvider";
 
 const Navigation = () => {
   const { theme, setColorKey } = useTheme();
-  const { active } = useActiveSection();
+  const { activeSection, setActiveSection } = useActiveSection();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40">
@@ -43,14 +44,17 @@ const Navigation = () => {
                     whileHover={{ scale: 1.05 }}
                     className="transition-all"
                   >
-                    <Link href={`#${item.id}`}>
+                    <Link href={`#${item.id as SectionId}`}>
                       <Button
                         className={`px-4 py-2 rounded-lg text-sm font-medium  ${
-                          active === item.id
+                          activeSection === item.id
                             ? `bg-zinc-800/80 ${theme.accent}`
                             : "text-zinc-400"
                         }`}
                         variant="ghost"
+                        onClick={() =>
+                          setActiveSection(`${item.id as SectionId}`)
+                        }
                       >
                         {item.label}
                       </Button>
