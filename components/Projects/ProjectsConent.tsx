@@ -94,7 +94,7 @@ const ProjectsConent = () => {
               ).map((project, index) => (
                 <motion.button
                   key={index}
-                  className={`w-full p-4 rounded-xl text-left transition-all ${
+                  className={`relative overflow-hidden w-full p-4 rounded-xl text-left transition-all ${
                     activeProject === index
                       ? `bg-zinc-800 border ${theme.border} shadow-lg`
                       : "bg-zinc-900/50 hover:bg-zinc-800/70"
