@@ -43,16 +43,18 @@ const Navigation = () => {
                     whileHover={{ scale: 1.05 }}
                     className="transition-all"
                   >
-                    <Button
-                      className={`px-4 py-2 rounded-lg text-sm font-medium  ${
-                        active === item.id
-                          ? `bg-zinc-800/80 ${theme.accent}`
-                          : "text-zinc-400"
-                      }`}
-                      variant="ghost"
-                    >
-                      {item.label}
-                    </Button>
+                    <Link href={`#${item.id}`}>
+                      <Button
+                        className={`px-4 py-2 rounded-lg text-sm font-medium  ${
+                          active === item.id
+                            ? `bg-zinc-800/80 ${theme.accent}`
+                            : "text-zinc-400"
+                        }`}
+                        variant="ghost"
+                      >
+                        {item.label}
+                      </Button>
+                    </Link>
                   </motion.div>
                 ))}
               </nav>
