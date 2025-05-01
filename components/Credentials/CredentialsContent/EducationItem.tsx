@@ -1,9 +1,7 @@
-import { useTheme } from "@/hooks/useTheme";
-import { useInView } from "motion/react";
-import React, { useRef } from "react";
-import { motion } from "motion/react";
-import { CheckCircle, GraduationCap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { CheckCircle, GraduationCap } from "lucide-react";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 
 interface EducationItemProps {
   degree: string;
@@ -17,7 +15,6 @@ interface EducationItemProps {
 const EducationItem = ({ ...props }: EducationItemProps) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
-  const { theme } = useTheme();
   return (
     <motion.div
       ref={ref}
@@ -30,7 +27,7 @@ const EducationItem = ({ ...props }: EducationItemProps) => {
       <div className="flex flex-col md:flex-row md:items-start gap-4">
         <div className="flex-shrink-0">
           <div
-            className={`w-12 h-12 rounded-full ${theme.highlight} flex items-center justify-center text-zinc-900`}
+            className={`w-12 h-12 rounded-full bg-primary flex items-center justify-center text-zinc-900`}
           >
             <GraduationCap size={24} />
           </div>
@@ -40,11 +37,9 @@ const EducationItem = ({ ...props }: EducationItemProps) => {
             <h3 className="text-xl font-semibold text-zinc-200">
               {props.degree}
             </h3>
-            <Badge className={`mt-2 md:mt-0 ${theme.badge}`}>
-              {props.years}
-            </Badge>
+            <Badge className={`mt-2 md:mt-0 `}>{props.years}</Badge>
           </div>
-          <p className={`text-lg ${theme.accent} mb-2`}>{props.institution}</p>
+          <p className={`text-lg text-primary mb-2`}>{props.institution}</p>
           <p className="text-zinc-400 mb-4">{props.description}</p>
 
           {props.achievements && props.achievements.length > 0 && (
@@ -58,7 +53,7 @@ const EducationItem = ({ ...props }: EducationItemProps) => {
                     key={i}
                     className="flex items-start gap-2 text-sm text-zinc-300"
                   >
-                    <CheckCircle size={16} className={theme.accent} />
+                    <CheckCircle size={16} className="text-primary" />
                     <span>{achievement}</span>
                   </li>
                 ))}
