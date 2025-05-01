@@ -8,7 +8,7 @@ import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
-    <div className="relative z-10 text-zinc-200">
+    <div className="relative z-10 text-foreground">
       <Hero />
       <About />
       <Credentials />

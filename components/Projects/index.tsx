@@ -4,7 +4,7 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 import { motion } from "motion/react";
 import ScrollDownButton from "../ScrollDownButton";
 import SectionHeading from "../SectionHeading";
-import ProjectsConent from "./ProjectsConent";
+import ProjectsContent from "./ProjectsContent";
 
 const Projects = () => {
   const { setActiveSection } = useActiveSection();
@@ -28,7 +28,7 @@ const Projects = () => {
 
       <div className="container px-4 md:px-6 relative z-10">
         <SectionHeading>Featured Work</SectionHeading>
-        <ProjectsConent />
+        <ProjectsContent />
       </div>
       <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2"

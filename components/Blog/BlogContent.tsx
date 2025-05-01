@@ -49,7 +49,7 @@ const BlogContent = () => {
             />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <Badge className={`mb-3 `}>{BLOG_POSTS[0].category}</Badge>
-              <h3 className="text-xl font-bold text-white mb-2">
+              <h3 className="text-xl font-bold text-foreground mb-2">
                 {BLOG_POSTS[0].title}
               </h3>
               <div className="flex items-center gap-4 text-xs text-zinc-400">
