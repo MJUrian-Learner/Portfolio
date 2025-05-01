@@ -33,9 +33,9 @@ const HeroImage = () => {
               priority
             />
             <div className="absolute inset-0 rounded-full overflow-hidden">
-              <div className="absolute top-1/4 right-1/4 w-16 h-16 rounded-full bg-white opacity-10" />
-              <div className="absolute bottom-1/3 left-1/3 w-20 h-20 rounded-full bg-white opacity-5" />
-              <div className="absolute top-1/2 left-1/4 w-12 h-12 rounded-full bg-[theme.highlight] opacity-10" />
+              <div className="absolute top-1/4 right-1/4 w-16 h-16 rounded-full bg-background dark:bg-foreground opacity-10" />
+              <div className="absolute bottom-1/3 left-1/3 w-20 h-20 rounded-full bg-background dark:bg-foreground opacity-5" />
+              <div className="absolute top-1/2 left-1/4 w-12 h-12 rounded-full bg-background dark:bg-foreground opacity-10" />
             </div>
           </div>
           <div
@@ -45,14 +45,14 @@ const HeroImage = () => {
 
         {/* Floating accents */}
         <motion.div
-          className={`absolute -right-4 top-1/4 p-2 rounded-full bg-primary text-zinc-950 shadow-lg`}
+          className={`absolute -right-4 top-1/4 p-2 rounded-full bg-primary text-foreground shadow-lg`}
           animate={{ y: [0, 10, 0], rotate: [0, 10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
           <Zap size={20} />
         </motion.div>
         <motion.div
-          className="absolute -left-4 bottom-1/4 p-2 rounded-full bg-zinc-800 shadow-lg"
+          className="absolute -left-4 bottom-1/4 p-2 rounded-full bg-background shadow-lg"
           animate={{ y: [0, -10, 0], rotate: [0, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >

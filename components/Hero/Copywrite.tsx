@@ -24,17 +24,17 @@ const Copywrite = () => {
       </motion.div>
 
       <motion.h1
-        className={`text-6xl font-bold mb-6 leading-tight  bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70`}
+        className={`text-6xl font-bold mb-6 leading-tight  bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 `}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
       >
-        Transforming <span className="text-zinc-200">Ideas</span> Into Digital{" "}
-        <span className="text-zinc-200">Reality</span>
+        Transforming <span className="text-foreground/80">Ideas</span> Into
+        Digital <span className="text-foreground/80">Reality</span>
       </motion.h1>
 
       <motion.p
-        className="text-xl md:text-2xl text-zinc-400 mb-8"
+        className="text-xl md:text-2xl dark:text-zinc-400 mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7, duration: 1 }}
