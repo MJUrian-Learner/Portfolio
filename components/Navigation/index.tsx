@@ -1,27 +1,15 @@
 "use client";
 
-import React from "react";
-import { motion } from "motion/react";
-import { COLOR_THEMES, NAVIGATION_MENU } from "@/constants";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Palette } from "lucide-react";
+import { NAVIGATION_MENU } from "@/constants";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { SectionId } from "@/providers/ActiveSectionProvider";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+import { motion } from "motion/react";
+import Link from "next/link";
+import ThemeSelector from "./ThemeSelector";
 
 const Navigation = () => {
   const { activeSection, setActiveSection } = useActiveSection();
-
-  const handleColorKey = (colorKey: string) => {
-    const root = window.document.documentElement;
-    root.setAttribute("data-theme", colorKey);
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40">
@@ -65,39 +53,7 @@ const Navigation = () => {
                   </motion.div>
                 ))}
               </nav>
-              <div className="flex items-center gap-2">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40 rounded-lg"
-                    >
-                      <Palette size={18} />
-                      <span className="sr-only">Change theme</span>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent
-                    align="end"
-                    className="bg-zinc-900 border border-zinc-800 rounded-lg"
-                  >
-                    {Object.entries(COLOR_THEMES).map(([key, value]) => (
-                      <DropdownMenuItem
-                        key={key}
-                        onClick={() =>
-                          handleColorKey(key as keyof typeof COLOR_THEMES)
-                        }
-                        className="flex items-center gap-2 cursor-pointer"
-                      >
-                        <div
-                          className={`w-4 h-4 rounded-full ${value.highlight}`}
-                        />
-                        <span>{value.name}</span>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
+              <ThemeSelector />
             </div>
           </motion.div>
         </div>
