@@ -1,6 +1,5 @@
 "use client";
 
-import { useTheme } from "@/hooks/useTheme";
 import React from "react";
 
 interface DiagonalBackgroundProps {
@@ -9,8 +8,6 @@ interface DiagonalBackgroundProps {
 }
 
 const DiagonalBackground = ({ ...props }: DiagonalBackgroundProps) => {
-  const { theme } = useTheme();
-
   const isLeft = props.side === "left";
 
   const clipPath = isLeft
@@ -24,7 +21,7 @@ const DiagonalBackground = ({ ...props }: DiagonalBackgroundProps) => {
     <div className="absolute inset-0 z-0">
       <div className="absolute inset-0 bg-zinc-900/30" />
       <div
-        className={`absolute top-0 ${horizontal} bottom-0 w-1/3 ${gradientDirection} ${theme.primary} opacity-5`}
+        className={`absolute top-0 ${horizontal} bottom-0 w-1/3 ${gradientDirection} from-primary to-primary/70 opacity-5`}
         style={{
           clipPath: clipPath,
         }}
