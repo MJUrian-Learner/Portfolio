@@ -11,7 +11,7 @@ import { Button } from "../ui/button";
 type ColorKey = "emerald" | "crimson" | "sapphire" | "amber" | "mint";
 
 const THEMES: Record<ColorKey, { name: string; color: string }> = {
-  emerald: { name: "Emerald", color: "bg-primary" },
+  emerald: { name: "Emerald", color: "bg-emerald-500" },
   crimson: { name: "Crimson", color: "bg-rose-500" },
   sapphire: { name: "Sapphire", color: "bg-blue-500" },
   amber: { name: "Amber", color: "bg-amber-500" },
