@@ -1,10 +1,6 @@
 "use client";
 
 import { CaTEGORIES, PROJECTS } from "@/constants";
-import { useTheme } from "@/hooks/useTheme";
-import { useInView, motion } from "motion/react";
-import React, { useRef, useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import {
   Check,
   Code,
@@ -16,12 +12,14 @@ import {
   Server,
   Workflow,
 } from "lucide-react";
+import { motion, useInView } from "motion/react";
 import Image from "next/image";
+import { useRef, useState } from "react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 
 const ProjectsConent = () => {
-  const { theme } = useTheme();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -62,7 +60,7 @@ const ProjectsConent = () => {
                   key={category.id}
                   className={`px-3 py-1 text-xs rounded-full transition-all ${
                     activeFilter === category.id
-                      ? `${theme.highlight} text-zinc-900`
+                      ? `bg-primary text-zinc-900`
                       : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300"
                   }`}
                   onClick={() => setActiveFilter(category.id)}
@@ -96,7 +94,7 @@ const ProjectsConent = () => {
                   key={index}
                   className={`relative overflow-hidden w-full p-4 rounded-xl text-left transition-all ${
                     activeProject === index
-                      ? `bg-zinc-800 border ${theme.border} shadow-lg`
+                      ? `bg-zinc-800 border border-primary/30 shadow-lg`
                       : "bg-zinc-900/50 hover:bg-zinc-800/70"
                   }`}
                   onClick={() => {
@@ -109,7 +107,9 @@ const ProjectsConent = () => {
                   <div className="relative z-10">
                     <h3
                       className={`font-medium mb-1 ${
-                        activeProject === index ? theme.accent : "text-zinc-300"
+                        activeProject === index
+                          ? "text-primary"
+                          : "text-zinc-300"
                       }`}
                     >
                       {project.title}
@@ -139,7 +139,7 @@ const ProjectsConent = () => {
                   {/* Active indicator */}
                   {activeProject === index && (
                     <div
-                      className={`absolute left-0 top-0 bottom-0 w-1 ${theme.highlight} rounded-l-lg`}
+                      className={`absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-lg`}
                     />
                   )}
                 </motion.button>
@@ -197,7 +197,7 @@ const ProjectsConent = () => {
                         className="object-cover"
                       />
                       <div
-                        className={`absolute inset-0 bg-gradient-to-tr ${theme.secondary} opacity-30 mix-blend-multiply`}
+                        className={`absolute inset-0 bg-gradient-to-tr from-primary to-primary/70 opacity-30 mix-blend-multiply`}
                       />
 
                       {/* Project tags */}
@@ -231,7 +231,7 @@ const ProjectsConent = () => {
                       </Button>
                       <Button
                         size="sm"
-                        className={`gap-2 bg-gradient-to-r ${theme.secondary} text-zinc-950`}
+                        className={`gap-2 bg-gradient-to-r from-primary to-primary/70 text-zinc-950`}
                       >
                         <ExternalLink size={14} />
                         Live Demo
@@ -283,7 +283,7 @@ const ProjectsConent = () => {
                               className="flex items-center gap-2"
                             >
                               <div
-                                className={`w-5 h-5 rounded-full ${theme.highlight} flex items-center justify-center`}
+                                className={`w-5 h-5 rounded-full bg-primary flex items-center justify-center`}
                               >
                                 <Check size={12} className="text-zinc-900" />
                               </div>
@@ -337,19 +337,19 @@ const ProjectsConent = () => {
                             className="bg-zinc-800/50 rounded-lg p-4 border border-zinc-700/50 flex items-start gap-3"
                           >
                             {index === 0 && (
-                              <Server size={18} className={theme.accent} />
+                              <Server size={18} className="text-primary" />
                             )}
                             {index === 1 && (
-                              <Code size={18} className={theme.accent} />
+                              <Code size={18} className="text-primary" />
                             )}
                             {index === 2 && (
-                              <Database size={18} className={theme.accent} />
+                              <Database size={18} className="text-primary" />
                             )}
                             {index === 3 && (
-                              <Cpu size={18} className={theme.accent} />
+                              <Cpu size={18} className="text-primary" />
                             )}
                             {index === 4 && (
-                              <Network size={18} className={theme.accent} />
+                              <Network size={18} className="text-primary" />
                             )}
                             <div>
                               <h5 className="font-medium text-zinc-300">
