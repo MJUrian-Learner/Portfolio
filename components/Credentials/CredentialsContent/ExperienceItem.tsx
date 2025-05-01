@@ -34,31 +34,31 @@ const ExperienceItem = ({ ...props }: ExperienceItemProps) => {
       <div className="flex gap-6">
         <div className="flex-shrink-0">
           <div
-            className={`w-12 h-12 rounded-full bg-primary flex items-center justify-center text-zinc-900 relative z-10`}
+            className={`w-12 h-12 rounded-full bg-primary flex items-center justify-center texte-foreground relative z-10`}
           >
             <Briefcase size={24} />
           </div>
         </div>
-        <div className="flex-grow bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-6">
+        <div className="flex-grow dark:bg-zinc-900/50 backdrop-blur-sm border border-border rounded-xl p-6">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-            <h3 className="text-xl font-semibold text-zinc-200">
+            <h3 className="text-xl font-semibold text-foreground">
               {props.position}
             </h3>
             <Badge className={`mt-2 md:mt-0 `}>{props.years}</Badge>
           </div>
           <p className={`text-lg text-primary mb-2`}>{props.company}</p>
-          <p className="text-zinc-400 mb-4">{props.description}</p>
+          <p className="text-muted-foreground mb-4">{props.description}</p>
 
           {props.achievements && props.achievements.length > 0 && (
             <div className="space-y-2">
-              <h4 className="text-sm font-medium text-zinc-500">
+              <h4 className="text-sm font-medium text-muted-foreground">
                 Key Achievements
               </h4>
               <ul className="space-y-1">
                 {props.achievements.map((achievement, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-2 text-sm text-zinc-300"
+                    className="flex items-start gap-2 text-sm text-foreground"
                   >
                     <CheckCircle size={16} className="text-primary" />
                     <span>{achievement}</span>

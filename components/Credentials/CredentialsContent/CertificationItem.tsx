@@ -20,9 +20,9 @@ const CertificationItem = ({ ...props }: CertificationItemProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: props.index * 0.1 }}
-      className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 flex items-start gap-4 hover:bg-zinc-800/30 transition-colors"
+      className="dark:bg-zinc-900/50 backdrop-blur-sm border border-border rounded-xl p-6 flex items-start gap-4 hover:bg-zinc-700/20 transition-colors"
     >
-      <div className="relative w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border border-zinc-700">
+      <div className="relative w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden border border-border">
         <Image
           src={props.image}
           alt={props.issuer}
@@ -31,9 +31,9 @@ const CertificationItem = ({ ...props }: CertificationItemProps) => {
         />
       </div>
       <div>
-        <h3 className="text-lg font-medium text-zinc-200">{props.title}</h3>
+        <h3 className="text-lg font-medium text-foreground">{props.title}</h3>
         <p className={`text-sm text-primary mb-1`}>{props.issuer}</p>
-        <div className="flex items-center gap-2 text-xs text-zinc-500">
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <Medal size={12} />
           <span>Issued {props.date}</span>
         </div>

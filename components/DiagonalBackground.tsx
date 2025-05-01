@@ -19,7 +19,7 @@ const DiagonalBackground = ({ ...props }: DiagonalBackgroundProps) => {
 
   return (
     <div className="absolute inset-0 z-0">
-      <div className="absolute inset-0 bg-zinc-900/30" />
+      <div className="absolute inset-0 dark:bg-zinc-900/30" />
       <div
         className={`absolute top-0 ${horizontal} bottom-0 w-1/3 ${gradientDirection} from-primary to-primary/70 opacity-5`}
         style={{

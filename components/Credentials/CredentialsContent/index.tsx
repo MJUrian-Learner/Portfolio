@@ -42,7 +42,10 @@ const CredentialsContent = () => {
         </TabsList>
 
         {/* Education Tab */}
-        <TabsContent value="education" className="mt-0">
+        <TabsContent
+          value="education"
+          className="mt-0 dark:data-[state=active]:text-red-500"
+        >
           <div className="space-y-8">
             <EducationItem
               degree="Master of Science in Computer Science"
