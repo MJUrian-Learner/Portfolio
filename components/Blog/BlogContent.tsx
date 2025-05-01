@@ -1,7 +1,6 @@
 "use client";
 
 import { BLOG_POSTS } from "@/constants";
-import { useTheme } from "@/hooks/useTheme";
 import {
   ArrowRight,
   Calendar,
@@ -19,7 +18,6 @@ import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 
 const BlogContent = () => {
-  const { theme } = useTheme();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -50,9 +48,7 @@ const BlogContent = () => {
               className={`absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-70`}
             />
             <div className="absolute bottom-0 left-0 right-0 p-6">
-              <Badge className={`mb-3 ${theme.badge}`}>
-                {BLOG_POSTS[0].category}
-              </Badge>
+              <Badge className={`mb-3 `}>{BLOG_POSTS[0].category}</Badge>
               <h3 className="text-xl font-bold text-white mb-2">
                 {BLOG_POSTS[0].title}
               </h3>
@@ -73,7 +69,7 @@ const BlogContent = () => {
             <div className="flex items-center justify-between">
               <Button
                 variant="ghost"
-                className={`${theme.accent} ${theme.hover} px-0 flex items-center gap-1`}
+                className={`text-primary px-0 flex items-center gap-1`}
               >
                 Read Article <ChevronRight size={16} />
               </Button>
@@ -114,7 +110,7 @@ const BlogContent = () => {
                 />
               </div>
               <div className="flex-1">
-                <Badge className={`mb-2 ${theme.badge}`}>{post.category}</Badge>
+                <Badge className={`mb-2 `}>{post.category}</Badge>
                 <h3 className="font-medium text-zinc-200 mb-1 line-clamp-1">
                   {post.title}
                 </h3>
@@ -130,7 +126,7 @@ const BlogContent = () => {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className={`${theme.accent} p-0`}
+                    className={`text-primary p-0`}
                   >
                     <FileText size={14} />
                     <span className="sr-only">Read article</span>

@@ -2,14 +2,12 @@
 
 import { motion } from "motion/react";
 
-import { useTheme } from "@/hooks/useTheme";
-import SectionHeading from "../SectionHeading";
 import { useActiveSection } from "@/hooks/useActiveSection";
-import BlogContent from "./BlogContent";
 import ScrollDownButton from "../ScrollDownButton";
+import SectionHeading from "../SectionHeading";
+import BlogContent from "./BlogContent";
 
 const Blog = () => {
-  const { theme } = useTheme();
   const { setActiveSection } = useActiveSection();
 
   return (
@@ -23,7 +21,7 @@ const Blog = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-zinc-900/40" />
         <div
-          className={`absolute bottom-0 left-0 w-2/3 h-1/2 bg-gradient-to-tr ${theme.primary} opacity-5`}
+          className={`absolute bottom-0 left-0 w-2/3 h-1/2 bg-gradient-to-tr from-primary to-primary/70 opacity-5`}
           style={{
             clipPath: "polygon(0 30%, 100% 0, 100% 100%, 0 100%)",
           }}
