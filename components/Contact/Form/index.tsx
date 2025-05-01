@@ -22,7 +22,7 @@ const Form = () => {
       {/* Contact info */}
       <div className="space-y-8">
         <div>
-          <h3 className={`text-xl font-semibold mb-4 ${theme.accent}`}>
+          <h3 className={`text-xl font-semibold mb-4 text-primary`}>
             Let&apos;s Talk
           </h3>
           <p className="text-zinc-400">
@@ -34,7 +34,7 @@ const Form = () => {
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center">
-              <Mail size={18} className={theme.accent} />
+              <Mail size={18} className="text-primary" />
             </div>
             <div>
               <p className="text-sm text-zinc-500">Email</p>
@@ -44,7 +44,7 @@ const Form = () => {
 
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center">
-              <Compass size={18} className={theme.accent} />
+              <Compass size={18} className="text-primary" />
             </div>
             <div>
               <p className="text-sm text-zinc-500">Location</p>
@@ -121,7 +121,7 @@ const Form = () => {
           </div>
 
           <Button
-            className={`w-full bg-gradient-to-r ${theme.secondary} text-zinc-950 hover:opacity-90`}
+            className={`w-full bg-gradient-to-r from-primary to-primary/70 text-zinc-950 hover:opacity-90`}
           >
             Send Message
           </Button>
