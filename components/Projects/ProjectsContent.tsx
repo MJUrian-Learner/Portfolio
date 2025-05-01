@@ -19,7 +19,7 @@ import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 
-const ProjectsConent = () => {
+const ProjectsContent = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -213,7 +213,7 @@ const ProjectsConent = () => {
                       </div>
                     </div>
 
-                    <h2 className="text-2xl font-bold mb-2 text-white">
+                    <h2 className="text-2xl font-bold mb-2 text-foreground">
                       {PROJECTS[activeProject].title}
                     </h2>
                     <p className="text-zinc-400 mb-6">
@@ -300,7 +300,7 @@ const ProjectsConent = () => {
               <TabsContent value="architecture" className="mt-0">
                 <div className="space-y-8">
                   <div>
-                    <h3 className="text-xl font-semibold mb-3 text-white">
+                    <h3 className="text-xl font-semibold mb-3 text-foreground">
                       System Architecture
                     </h3>
                     <p className="text-zinc-400 mb-6">
@@ -374,4 +374,4 @@ const ProjectsConent = () => {
   );
 };
 
-export default ProjectsConent;
+export default ProjectsContent;
