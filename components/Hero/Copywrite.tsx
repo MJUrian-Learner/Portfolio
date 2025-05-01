@@ -1,13 +1,10 @@
-import React from "react";
-import { motion } from "motion/react";
-import { Badge } from "../ui/badge";
-import { useTheme } from "@/hooks/useTheme";
-import { Button } from "../ui/button";
 import { Rocket } from "lucide-react";
+import { motion } from "motion/react";
 import Link from "next/link";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
 
 const Copywrite = () => {
-  const { theme } = useTheme();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -21,13 +18,13 @@ const Copywrite = () => {
         animate={{ scale: 1 }}
         transition={{ delay: 0.3, type: "spring" }}
       >
-        <Badge className={`rounded-full px-3 py-1 text-sm  ${theme.badge}`}>
+        <Badge className={`rounded-full px-3 py-1 text-sm `}>
           Full-Stack Developer & Designer
         </Badge>
       </motion.div>
 
       <motion.h1
-        className={`text-6xl font-bold mb-6 leading-tight  bg-clip-text text-transparent bg-gradient-to-r ${theme.primary}`}
+        className={`text-6xl font-bold mb-6 leading-tight  bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
@@ -55,7 +52,7 @@ const Copywrite = () => {
       >
         <Link href="#projects">
           <Button
-            className={`${theme.highlight} hover:opacity-90 text-zinc-950 group relative overflow-hidden`}
+            className={`bg-primary hover:opacity-90 text-zinc-950 group relative overflow-hidden`}
           >
             <span className="relative z-10 flex items-center gap-2">
               View My Portfolio{" "}
@@ -65,17 +62,14 @@ const Copywrite = () => {
               />
             </span>
             <span
-              className={`absolute inset-0 bg-gradient-to-r ${theme.secondary} opacity-0 group-hover:opacity-100 transition-opacity`}
+              className={`absolute inset-0 bg-gradient-to-r from-primary to-primary/70 opacity-0 group-hover:opacity-100 transition-opacity`}
             />
           </Button>
         </Link>
         <Link href="#contact">
           <Button
             variant="outline"
-            className={`${theme.border} ${theme.accent.replace(
-              "text-",
-              "text-"
-            )} ${theme.hover}`}
+            className={`border-primary/30 text-primary`}
           >
             Let&apos;s Collaborate
           </Button>

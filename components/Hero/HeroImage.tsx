@@ -1,12 +1,8 @@
-import React from "react";
+import { Sparkles, Zap } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { Sparkles, Zap } from "lucide-react";
-import { useTheme } from "@/hooks/useTheme";
 
 const HeroImage = () => {
-  const { theme } = useTheme();
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -23,12 +19,8 @@ const HeroImage = () => {
     >
       <div className="relative w-full aspect-square">
         {/* Orbital rings */}
-        <div
-          className={`absolute inset-[-15%] rounded-full border ${theme.border} opacity-20 animate-[spin_40s_linear_infinite]`}
-        />
-        <div
-          className={`absolute inset-[-8%] rounded-full border ${theme.border} opacity-30 animate-[spin_30s_linear_infinite_reverse]`}
-        />
+        <div className="absolute inset-[-15%] rounded-full border border-primary/30 opacity-20 animate-[spin_40s_linear_infinite]" />
+        <div className="absolute inset-[-8%] rounded-full border border-primary/30 opacity-30 animate-[spin_30s_linear_infinite_reverse]" />
 
         {/* Main circular container */}
         <div className="relative w-full h-full">
@@ -47,13 +39,13 @@ const HeroImage = () => {
             </div>
           </div>
           <div
-            className={`absolute -inset-3 border-2 ${theme.border} rounded-full blur-sm opacity-50`}
+            className={`absolute -inset-3 border-2 border-primary/30 rounded-full blur-sm opacity-50`}
           />
         </div>
 
         {/* Floating accents */}
         <motion.div
-          className={`absolute -right-4 top-1/4 p-2 rounded-full ${theme.highlight} text-zinc-950 shadow-lg`}
+          className={`absolute -right-4 top-1/4 p-2 rounded-full bg-primary text-zinc-950 shadow-lg`}
           animate={{ y: [0, 10, 0], rotate: [0, 10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -64,18 +56,15 @@ const HeroImage = () => {
           animate={{ y: [0, -10, 0], rotate: [0, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
-          <Sparkles size={20} className={theme.accent} />
+          <Sparkles size={20} className="text-primary" />
         </motion.div>
         <motion.div
-          className={`absolute top-1/2 -right-2 w-4 h-4 rounded-full ${theme.highlight} opacity-70`}
+          className={`absolute top-1/2 -right-2 w-4 h-4 rounded-full bg-primary/70`}
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full ${theme.accent.replace(
-            "text",
-            "bg"
-          )} opacity-70`}
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-accent/70"
           animate={{ y: [0, 5, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />
