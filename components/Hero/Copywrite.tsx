@@ -52,7 +52,7 @@ const Copywrite = () => {
       >
         <Link href="#projects">
           <Button
-            className={`bg-primary hover:opacity-90 text-zinc-950 group relative overflow-hidden`}
+            className={`bg-primary hover:opacity-90 dark:text-zinc-950 group relative overflow-hidden`}
           >
             <span className="relative z-10 flex items-center gap-2">
               View My Portfolio{" "}
