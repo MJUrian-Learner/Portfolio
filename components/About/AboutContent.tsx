@@ -4,10 +4,8 @@ import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import SectionHeading from "../SectionHeading";
 import { Button } from "../ui/button";
-import { useTheme } from "@/hooks/useTheme";
 
 const AboutContent = () => {
-  const { theme } = useTheme();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
   return (
@@ -43,10 +41,7 @@ const AboutContent = () => {
         <Button
           size="lg"
           variant="outline"
-          className={`${theme.border} ${theme.accent.replace(
-            "text-",
-            "text-"
-          )} ${theme.hover}`}
+          className={`border-primary/30 text-primary`}
         >
           Download CV
         </Button>

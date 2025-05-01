@@ -1,13 +1,10 @@
 "use client";
 
-import { useTheme } from "@/hooks/useTheme";
-import { useInView } from "motion/react";
-import React, { useRef } from "react";
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 import Image from "next/image";
+import { useRef } from "react";
 
 const AboutImage = () => {
-  const { theme } = useTheme();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -22,10 +19,10 @@ const AboutImage = () => {
       <div className="relative aspect-square max-w-md mx-auto ">
         {/* Decorative elements */}
         <div
-          className={`absolute inset-0 border-2 ${theme.border} rounded-lg transform rotate-3`}
+          className={`absolute inset-0 border-2 bg-primary/20 text-primary border-primary/30 rounded-lg transform rotate-3`}
         />
         <div
-          className={`absolute inset-0 border-2 ${theme.border} rounded-lg transform -rotate-3`}
+          className={`absolute inset-0 border-2 bg-primary/20 text-primary border-primary/30 rounded-lg transform -rotate-3`}
         />
 
         {/* Main image */}
@@ -39,7 +36,7 @@ const AboutImage = () => {
 
           {/* Overlay */}
           <div
-            className={`absolute inset-0 bg-gradient-to-t ${theme.secondary} opacity-20 mix-blend-multiply`}
+            className={`absolute inset-0 bg-gradient-to-t // from-primary to-primary/70 opacity-20 mix-blend-multiply`}
           />
         </div>
 
