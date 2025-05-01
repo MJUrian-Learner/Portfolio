@@ -42,7 +42,7 @@ const AboutImage = () => {
 
         {/* Floating badges */}
         <motion.div
-          className="absolute -right-5 top-10 bg-zinc-800 rounded-full px-3 py-1 text-sm border border-zinc-700"
+          className="absolute -right-5 top-10 bg-foreground/90 rounded-full px-3 py-1 text-sm border border-foreground/70 text-background"
           animate={{ y: [0, 10, 0] }}
           transition={{
             duration: 4,
@@ -54,7 +54,7 @@ const AboutImage = () => {
         </motion.div>
 
         <motion.div
-          className="absolute -left-5 bottom-10 bg-zinc-800 rounded-full px-3 py-1 text-sm border border-zinc-700"
+          className="absolute -left-5 bottom-10 bg-foreground/90 rounded-full px-3 py-1 text-sm border border-foreground/70 text-background"
           animate={{ y: [0, -10, 0] }}
           transition={{
             duration: 4,

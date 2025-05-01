@@ -17,20 +17,20 @@ const AboutContent = () => {
       className="space-y-6"
     >
       <SectionHeading>About Me</SectionHeading>
-      <div className="space-y-4">
-        <p className="text-lg text-zinc-300">
+      <div className="space-y-4 dark:text-zinc-400 text-justify text-lg">
+        <p>
           I&apos;m a creative developer who thrives at the intersection of
           design and technology. With a passion for building immersive digital
           experiences, I blend technical expertise with artistic vision to
           create memorable and functional web solutions.
         </p>
-        <p className="text-zinc-400">
+        <p>
           My journey began with a fascination for both visual arts and logical
           problem-solving, which naturally led me to web development. Today, I
           specialize in crafting unique digital experiences that push creative
           boundaries while maintaining technical excellence.
         </p>
-        <p className="text-zinc-400">
+        <p>
           When I&apos;m not coding, you&apos;ll find me exploring new design
           trends, experimenting with digital art, or seeking inspiration in
           nature and architecture.
