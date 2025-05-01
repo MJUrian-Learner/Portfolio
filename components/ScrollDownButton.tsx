@@ -10,7 +10,7 @@ const ScrollDownButton = ({ to, item }: { to: string; item: SectionId }) => {
     <Link href={to}>
       <Button
         variant="ghost"
-        className="text-zinc-500 hover:text-zinc-300"
+        className="text-foreground/50 hover:text-foreground/70"
         onClick={() => setActiveSection(`${item as SectionId}`)}
       >
         Scroll Down
