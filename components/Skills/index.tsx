@@ -1,16 +1,13 @@
 "use client";
 
-import React from "react";
-import { motion } from "motion/react";
 import { useActiveSection } from "@/hooks/useActiveSection";
-import SectionHeading from "../SectionHeading";
-import { useTheme } from "@/hooks/useTheme";
-import InteractiveSkillsShowcase from "./SkillsContent";
+import { motion } from "motion/react";
 import ScrollDownButton from "../ScrollDownButton";
+import SectionHeading from "../SectionHeading";
+import InteractiveSkillsShowcase from "./SkillsContent";
 
 const Skills = () => {
   const { setActiveSection } = useActiveSection();
-  const { theme } = useTheme();
 
   return (
     <motion.section
@@ -23,7 +20,7 @@ const Skills = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-zinc-900/50" />
         <div
-          className={`absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t ${theme.primary} opacity-5`}
+          className={`absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-primary to-primary/70 opacity-5`}
         />
       </div>
 

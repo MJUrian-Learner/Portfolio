@@ -1,14 +1,12 @@
 "use client";
 
 import { SKILL_CATEGORIES } from "@/constants";
-import { useTheme } from "@/hooks/useTheme";
 import { Star } from "lucide-react";
 import { AnimatePresence, motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
 import { Badge } from "../ui/badge";
 
 const SkillsContent = () => {
-  const { theme } = useTheme();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -29,7 +27,7 @@ const SkillsContent = () => {
             key={key}
             className={`px-5 py-3 rounded-xl flex items-center gap-2 transition-all ${
               activeCategory === key
-                ? `bg-zinc-800 ${theme.accent} shadow-lg`
+                ? `bg-zinc-800 text-primary shadow-lg`
                 : "bg-zinc-900/50 text-zinc-400 hover:bg-zinc-800/70 hover:text-zinc-300"
             }`}
             onClick={() => setActiveCategory(key)}
@@ -87,7 +85,7 @@ const SkillsContent = () => {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <div
-                      className={`w-10 h-10 rounded-lg ${theme.highlight} flex items-center justify-center text-zinc-900 font-bold`}
+                      className={`w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-zinc-900 font-bold`}
                     >
                       <span>{skill.icon}</span>
                     </div>
@@ -102,7 +100,7 @@ const SkillsContent = () => {
                         size={14}
                         className={`${
                           star <= Math.round(skill.level / 20)
-                            ? theme.accent
+                            ? "text-primary"
                             : "text-zinc-700"
                         }`}
                         fill={
@@ -118,7 +116,7 @@ const SkillsContent = () => {
                 {/* Skill level bar */}
                 <div className="w-full h-1.5 bg-zinc-800 rounded-full mb-4 overflow-hidden">
                   <motion.div
-                    className={`h-full ${theme.highlight}`}
+                    className={`h-full bg-primary`}
                     initial={{ width: 0 }}
                     animate={{ width: `${skill.level}%` }}
                     transition={{
@@ -153,7 +151,7 @@ const SkillsContent = () => {
 
                 {/* View details button */}
                 <div
-                  className={`absolute bottom-0 left-0 right-0 h-1 ${theme.highlight} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+                  className={`absolute bottom-0 left-0 right-0 h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
                 />
               </div>
             </motion.div>
