@@ -5,6 +5,7 @@ import { Star } from "lucide-react";
 import { AnimatePresence, motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
 import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
 
 const SkillsContent = () => {
   const ref = useRef(null);
@@ -23,22 +24,27 @@ const SkillsContent = () => {
       {/* Category navigation */}
       <div className="flex flex-wrap justify-center gap-4 mb-12">
         {Object.entries(SKILL_CATEGORIES).map(([key, category]) => (
-          <motion.button
+          <motion.div
             key={key}
-            className={`px-5 py-3 rounded-xl flex items-center gap-2 transition-all ${
-              activeCategory === key
-                ? `bg-zinc-800 text-primary shadow-lg`
-                : "bg-zinc-900/50 text-zinc-400 hover:bg-zinc-800/70 hover:text-zinc-300"
-            }`}
-            onClick={() => setActiveCategory(key)}
+            className="transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span>
-              <category.icon size={24} />
-            </span>
-            <span>{category.title}</span>
-          </motion.button>
+            <Button
+              onClick={() => setActiveCategory(key)}
+              variant="outline"
+              className={`px-8 py-6 rounded-xl flex items-center gap-2 transition-all ${
+                activeCategory === key
+                  ? `dark:bg-zinc-800 bg-primary/10 text-foreground shadow-lg`
+                  : "dark:bg-zinc-900/50 text-muted-foreground hover:bg-background hover:text-foreground"
+              }`}
+            >
+              <span>
+                <category.icon size={24} />
+              </span>
+              <span>{category.title}</span>
+            </Button>
+          </motion.div>
         ))}
       </div>
 
@@ -78,18 +84,18 @@ const SkillsContent = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className={`relative group bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl overflow-hidden transition-all duration-300`}
+              className={`relative group bg-background backdrop-blur-sm border border-border rounded-xl overflow-hidden transition-all duration-300`}
             >
               {/* Skill card front */}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <div
-                      className={`w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-zinc-900 font-bold`}
+                      className={`w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-foreground font-bold`}
                     >
                       <span>{skill.icon}</span>
                     </div>
-                    <h3 className="text-lg font-semibold text-zinc-200">
+                    <h3 className="text-lg font-semibold text-foreground">
                       {skill.name}
                     </h3>
                   </div>
@@ -101,7 +107,7 @@ const SkillsContent = () => {
                         className={`${
                           star <= Math.round(skill.level / 20)
                             ? "text-primary"
-                            : "text-zinc-700"
+                            : "text-muted-foreground"
                         }`}
                         fill={
                           star <= Math.round(skill.level / 20)
@@ -114,7 +120,7 @@ const SkillsContent = () => {
                 </div>
 
                 {/* Skill level bar */}
-                <div className="w-full h-1.5 bg-zinc-800 rounded-full mb-4 overflow-hidden">
+                <div className="w-full h-1.5 bg-primary/30 rounded-full mb-4 overflow-hidden">
                   <motion.div
                     className={`h-full bg-primary`}
                     initial={{ width: 0 }}
@@ -128,28 +134,23 @@ const SkillsContent = () => {
                 </div>
 
                 {/* Skill description */}
-                <p className="text-sm text-zinc-400 mb-4">
+                <p className="text-sm text-muted-foreground mb-4">
                   {skill.description}
                 </p>
 
                 {/* Projects */}
                 <div className="space-y-2">
-                  <h4 className="text-xs uppercase tracking-wider text-zinc-500">
+                  <h4 className="text-xs uppercase tracking-wider text-muted-foreground">
                     Related Projects
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {skill.projects.map((project) => (
-                      <Badge
-                        key={project}
-                        className="bg-zinc-800 text-zinc-300 hover:bg-zinc-700"
-                      >
-                        {project}
-                      </Badge>
+                      <Badge key={project}>{project}</Badge>
                     ))}
                   </div>
                 </div>
 
-                {/* View details button */}
+                {/* Hover effect */}
                 <div
                   className={`absolute bottom-0 left-0 right-0 h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
                 />
