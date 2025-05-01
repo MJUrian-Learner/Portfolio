@@ -7,6 +7,7 @@ import {
 } from "../ui/dropdown-menu";
 import { Palette } from "lucide-react";
 import { Button } from "../ui/button";
+import { DarkModeToggle } from "../DarkModeToggle";
 
 type ColorKey = "emerald" | "crimson" | "sapphire" | "amber" | "mint";
 
@@ -30,21 +31,19 @@ const ThemeSelector = () => {
 
   return (
     <div className="flex items-center gap-2">
+      <DarkModeToggle />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
             size="icon"
-            className="text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40 rounded-lg"
+            className="dark:text-foreground dark:hover:text-foreground hover:bg-foreground/10 rounded-lg"
           >
             <Palette size={18} />
             <span className="sr-only">Change theme</span>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent
-          align="end"
-          className="bg-zinc-900 border border-zinc-800 rounded-lg"
-        >
+        <DropdownMenuContent align="end">
           {COLOR_KEYS.map((key) => {
             const { name, color } = THEMES[key];
             return (

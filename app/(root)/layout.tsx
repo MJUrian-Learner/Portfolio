@@ -3,6 +3,7 @@
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { ActiveSectionProvider } from "@/providers/ActiveSectionProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 import { ReactNode, useEffect } from "react";
 
@@ -19,11 +20,18 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <>
-      <ActiveSectionProvider>
-        <Navigation />
-        {children}
-        <Footer />
-      </ActiveSectionProvider>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <ActiveSectionProvider>
+          <Navigation />
+          {children}
+          <Footer />
+        </ActiveSectionProvider>
+      </ThemeProvider>
     </>
   );
 };
