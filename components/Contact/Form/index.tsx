@@ -1,14 +1,13 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { useTheme } from "@/hooks/useTheme";
+// import { Button } from "@/components/ui/button";
+
 import { Bird, Code, Compass, Mail, Phone, Share2 } from "lucide-react";
 import { useInView, motion } from "motion/react";
 import React, { useRef } from "react";
 import SocialLink from "./SocialLink";
 
 const Form = () => {
-  const { theme } = useTheme();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
   return (
@@ -65,7 +64,7 @@ const Form = () => {
       </div>
 
       {/* Contact form */}
-      <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-lg p-6">
+      {/* <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-lg p-6">
         <form className="space-y-4">
           <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-medium text-zinc-400">
@@ -126,7 +125,7 @@ const Form = () => {
             Send Message
           </Button>
         </form>
-      </div>
+      </div> */}
     </motion.div>
   );
 };

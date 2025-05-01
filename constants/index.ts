@@ -13,14 +13,14 @@ export const NAVIGATION_MENU = [
 export const COLOR_THEMES = {
   emerald: {
     name: "Emerald",
-    primary: "from-emerald-400 to-teal-500",
-    secondary: "from-teal-500 to-emerald-600",
-    accent: "text-emerald-400",
-    badge: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+    primary: "from-emerald-400 to-teal-500", // from-primary to-primary/70
+    secondary: "from-teal-500 to-emerald-600", // from-primary to-primary/70
+    accent: "text-emerald-400", // text-primary
+    badge: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30", // bg-primary/20 text-primary border-primary/30
     hover: "hover:bg-emerald-500/10",
-    border: "border-emerald-500/30",
+    border: "border-emerald-500/30", // border-primary/30
     cursor: "bg-emerald-400",
-    highlight: "bg-emerald-500",
+    highlight: "bg-emerald-500", // bg-primary
     muted: "text-emerald-300/70",
   },
   crimson: {
