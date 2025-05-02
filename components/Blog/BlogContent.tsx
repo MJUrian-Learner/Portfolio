@@ -35,7 +35,7 @@ const BlogContent = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl overflow-hidden"
+          className="bg-background backdrop-blur-sm border border-border rounded-xl overflow-hidden"
         >
           <div className="relative aspect-[16/10] overflow-hidden">
             <Image
@@ -45,14 +45,14 @@ const BlogContent = () => {
               className="object-cover transition-transform duration-500 hover:scale-105"
             />
             <div
-              className={`absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent opacity-70`}
+              className={`absolute inset-0 bg-gradient-to-t from-muted to-transparent opacity-70`}
             />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <Badge className={`mb-3 `}>{BLOG_POSTS[0].category}</Badge>
               <h3 className="text-xl font-bold text-foreground mb-2">
                 {BLOG_POSTS[0].title}
               </h3>
-              <div className="flex items-center gap-4 text-xs text-zinc-400">
+              <div className="flex items-center gap-4 text-xs text-muted-foreground">
                 <div className="flex items-center gap-1">
                   <Calendar size={12} />
                   <span>{BLOG_POSTS[0].date}</span>
@@ -65,7 +65,9 @@ const BlogContent = () => {
             </div>
           </div>
           <div className="p-6">
-            <p className="text-zinc-400 mb-4">{BLOG_POSTS[0].description}</p>
+            <p className="text-muted-foreground mb-4">
+              {BLOG_POSTS[0].description}
+            </p>
             <div className="flex items-center justify-between">
               <Button
                 variant="ghost"
@@ -73,7 +75,7 @@ const BlogContent = () => {
               >
                 Read Article <ChevronRight size={16} />
               </Button>
-              <div className="flex items-center gap-4 text-zinc-500 text-sm">
+              <div className="flex items-center gap-4 text-muted-foreground text-sm">
                 <div className="flex items-center gap-1">
                   <MessageSquare size={14} />
                   <span>{BLOG_POSTS[0].comments}</span>
@@ -99,7 +101,7 @@ const BlogContent = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex gap-4 bg-zinc-900/30 backdrop-blur-sm border border-zinc-800/50 rounded-xl overflow-hidden p-4 hover:bg-zinc-800/30 transition-colors"
+              className="flex gap-4 bg-background backdrop-blur-sm border border-border rounded-xl overflow-hidden p-4 hover:bg-primary/10 transition-colors"
             >
               <div className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden">
                 <Image
@@ -111,14 +113,14 @@ const BlogContent = () => {
               </div>
               <div className="flex-1">
                 <Badge className={`mb-2 `}>{post.category}</Badge>
-                <h3 className="font-medium text-zinc-200 mb-1 line-clamp-1">
+                <h3 className="font-medium text-foreground mb-1 line-clamp-1">
                   {post.title}
                 </h3>
-                <p className="text-xs text-zinc-400 mb-2 line-clamp-2">
+                <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
                   {post.description}
                 </p>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3 text-xs text-zinc-500">
+                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
                     <span>{post.date}</span>
                     <span>•</span>
                     <span>{post.readTime}</span>
@@ -137,10 +139,7 @@ const BlogContent = () => {
           ))}
 
           <div className="flex justify-center mt-8">
-            <Button
-              variant="outline"
-              className="border-zinc-700 text-zinc-300 hover:bg-zinc-800 flex items-center gap-2"
-            >
+            <Button variant="outline">
               View All Articles <ArrowRight size={14} />
             </Button>
           </div>

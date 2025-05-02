@@ -19,7 +19,7 @@ const Blog = () => {
     >
       {/* Section background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-zinc-900/40" />
+        <div className="absolute inset-0 bg-background" />
         <div
           className={`absolute bottom-0 left-0 w-2/3 h-1/2 bg-gradient-to-tr from-primary to-primary/70 opacity-5`}
           style={{
