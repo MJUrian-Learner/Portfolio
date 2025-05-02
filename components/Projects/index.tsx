@@ -17,7 +17,7 @@ const Projects = () => {
     >
       {/* Section background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-zinc-900/30" />
+        <div className="absolute inset-0 bg-background" />
         <div
           className={`absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-primary to-primary/70 opacity-5`}
           style={{

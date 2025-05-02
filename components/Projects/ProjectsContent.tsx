@@ -40,10 +40,10 @@ const ProjectsContent = () => {
           {/* Category filters */}
           <div className="mb-4 sm:mb-6">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-medium text-zinc-500">
+              <h3 className="text-sm font-medium text-muted-foreground">
                 Filter by Category
               </h3>
-              <span className="text-xs text-zinc-500">
+              <span className="text-xs text-muted-foreground">
                 {
                   PROJECTS.filter(
                     (project) =>
@@ -56,12 +56,14 @@ const ProjectsContent = () => {
             </div>
             <div className="flex flex-wrap gap-2">
               {CaTEGORIES.map((category) => (
-                <button
+                <Button
+                  variant="outline"
+                  size="sm"
                   key={category.id}
-                  className={`px-3 py-1 text-xs rounded-full transition-all ${
+                  className={`text-xs rounded-full transition-all ${
                     activeFilter === category.id
-                      ? `bg-primary text-zinc-900`
-                      : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700 hover:text-zinc-300"
+                      ? `bg-primary/30 text-foreground`
+                      : "text-muted-foreground"
                   }`}
                   onClick={() => setActiveFilter(category.id)}
                 >
@@ -77,14 +79,14 @@ const ProjectsContent = () => {
                       )
                     </span>
                   )}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
 
           {/* Scrollable project list with adjusted height for tablets */}
           <div className="relative">
-            <div className="max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh] overflow-y-auto pr-2 space-y-3 sm:space-y-4 scrollbar-thin">
+            <div className="max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh] overflow-y-auto overflow-x-auto pr-2 space-y-3 sm:space-y-4 ">
               {PROJECTS.filter(
                 (project) =>
                   activeFilter === "all" ||
@@ -92,10 +94,10 @@ const ProjectsContent = () => {
               ).map((project, index) => (
                 <motion.button
                   key={index}
-                  className={`relative overflow-hidden w-full p-4 rounded-xl text-left transition-all ${
+                  className={`relative overflow-visible w-full p-4 rounded-xl text-left transition-all ${
                     activeProject === index
-                      ? `bg-zinc-800 border border-primary/30 shadow-lg`
-                      : "bg-zinc-900/50 hover:bg-zinc-800/70"
+                      ? "bg-primary/10 hover:bg-primary/30 border border-primary/10"
+                      : `bg-background border border-primary/10 shadow-lg`
                   }`}
                   onClick={() => {
                     setActiveProject(index);
@@ -109,12 +111,12 @@ const ProjectsContent = () => {
                       className={`font-medium mb-1 ${
                         activeProject === index
                           ? "text-primary"
-                          : "text-zinc-300"
+                          : "text-foreground"
                       }`}
                     >
                       {project.title}
                     </h3>
-                    <p className="text-xs text-zinc-500 line-clamp-2">
+                    <p className="text-xs text-muted-foreground line-clamp-2">
                       {project.description}
                     </p>
 
@@ -123,13 +125,13 @@ const ProjectsContent = () => {
                       {project.tags.slice(0, 2).map((tag, i) => (
                         <span
                           key={i}
-                          className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400"
+                          className="text-[10px] px-1.5 py-0.5 rounded bg-primary/20 text-foreground/80"
                         >
                           {tag}
                         </span>
                       ))}
                       {project.tags.length > 2 && (
-                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400">
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-primary/20 text-foreground/80">
                           +{project.tags.length - 2}
                         </span>
                       )}
@@ -137,24 +139,24 @@ const ProjectsContent = () => {
                   </div>
 
                   {/* Active indicator */}
-                  {activeProject === index && (
+                  {/* {activeProject === index && (
                     <div
                       className={`absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-lg`}
                     />
-                  )}
+                  )} */}
                 </motion.button>
               ))}
             </div>
 
             {/* Scroll indicator - only shows when there are more projects than fit in the viewport */}
             <div
-              className={`absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none ${
+              className={`absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-muted-foreground to-transparent pointer-events-none ${
                 PROJECTS.filter(
                   (p) =>
                     activeFilter === "all" ||
                     p.categories.includes(activeFilter)
                 ).length > 5
-                  ? "opacity-100"
+                  ? "opacity-10"
                   : "opacity-0"
               }`}
             />
@@ -162,7 +164,7 @@ const ProjectsContent = () => {
         </div>
 
         {/* Project details - Main content area */}
-        <div className="w-full sm:w-2/3 md:w-3/4 bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl overflow-hidden">
+        <div className="w-full sm:w-2/3 md:w-3/4 bg-background backdrop-blur-sm border border-border rounded-xl overflow-hidden">
           <div className="p-6">
             <Tabs
               value={activeTab}
@@ -187,7 +189,7 @@ const ProjectsContent = () => {
               <TabsContent value="overview" className="mt-0">
                 <div className="grid lg:grid-cols-2 gap-8">
                   <div>
-                    <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl mb-6">
+                    <div className="relative aspect-video rounded-xl overflow-hidden shadow-xl mb-6">
                       <Image
                         src={
                           PROJECTS[activeProject].image || "/placeholder.svg"
@@ -196,16 +198,16 @@ const ProjectsContent = () => {
                         fill
                         className="object-cover"
                       />
-                      <div
+                      {/* <div
                         className={`absolute inset-0 bg-gradient-to-tr from-primary to-primary/70 opacity-30 mix-blend-multiply`}
-                      />
+                      /> */}
 
                       {/* Project tags */}
                       <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                         {PROJECTS[activeProject].tags.map((tag, i) => (
                           <Badge
                             key={i}
-                            className="bg-zinc-900/80 backdrop-blur-sm text-zinc-300 border-zinc-700"
+                            // className="bg-zinc-900/80 backdrop-blur-sm text-zinc-300 border-zinc-700"
                           >
                             {tag}
                           </Badge>
@@ -216,7 +218,7 @@ const ProjectsContent = () => {
                     <h2 className="text-2xl font-bold mb-2 text-foreground">
                       {PROJECTS[activeProject].title}
                     </h2>
-                    <p className="text-zinc-400 mb-6">
+                    <p className="text-muted-foreground mb-6">
                       {PROJECTS[activeProject].description}
                     </p>
 
@@ -224,14 +226,15 @@ const ProjectsContent = () => {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="gap-2 border-zinc-700 text-zinc-300 hover:bg-zinc-800"
+                        className="gap-2 hover:bg-primary/30 dark:hover:bg-zinc-800"
                       >
                         <Code size={14} />
                         View Code
                       </Button>
                       <Button
+                        variant="outline"
                         size="sm"
-                        className={`gap-2 bg-gradient-to-r from-primary to-primary/70 text-zinc-950`}
+                        className={`gap-2 bg-gradient-to-r from-primary to-primary/70 text-foreground`}
                       >
                         <ExternalLink size={14} />
                         Live Demo
@@ -242,26 +245,26 @@ const ProjectsContent = () => {
                   <div>
                     <div className="space-y-6">
                       <div>
-                        <h3 className="text-sm font-medium text-zinc-500 mb-2">
+                        <h3 className="text-sm font-medium text-foreground mb-2">
                           Role
                         </h3>
-                        <p className="text-zinc-300">
+                        <p className="text-muted-foreground">
                           {PROJECTS[activeProject].role}
                         </p>
                       </div>
                       <div>
-                        <h3 className="text-sm font-medium text-zinc-500 mb-2">
+                        <h3 className="text-sm font-medium text-foreground mb-2">
                           Challenge
                         </h3>
-                        <p className="text-zinc-300">
+                        <p className="text-muted-foreground">
                           {PROJECTS[activeProject].challenge}
                         </p>
                       </div>
                       <div>
-                        <h3 className="text-sm font-medium text-zinc-500 mb-2">
+                        <h3 className="text-sm font-medium text-foreground mb-2">
                           Solution
                         </h3>
-                        <p className="text-zinc-300">
+                        <p className="text-muted-foreground">
                           {PROJECTS[activeProject].solution}
                         </p>
                       </div>
@@ -269,7 +272,7 @@ const ProjectsContent = () => {
 
                     {/* Key features */}
                     <div className="mt-8">
-                      <h3 className="text-sm font-medium text-zinc-500 mb-3">
+                      <h3 className="text-sm font-medium text-foreground mb-3">
                         Key Features
                       </h3>
                       <ul className="space-y-2">
@@ -285,9 +288,11 @@ const ProjectsContent = () => {
                               <div
                                 className={`w-5 h-5 rounded-full bg-primary flex items-center justify-center`}
                               >
-                                <Check size={12} className="text-zinc-900" />
+                                <Check size={12} className="text-foreground" />
                               </div>
-                              <span className="text-zinc-300">{feature}</span>
+                              <span className="text-muted-foreground">
+                                {feature}
+                              </span>
                             </motion.li>
                           )
                         )}
@@ -303,30 +308,29 @@ const ProjectsContent = () => {
                     <h3 className="text-xl font-semibold mb-3 text-foreground">
                       System Architecture
                     </h3>
-                    <p className="text-zinc-400 mb-6">
+                    <p className="text-muted-foreground mb-6">
                       {PROJECTS[activeProject].architecture.description}
                     </p>
                   </div>
 
                   {/* Architecture diagram */}
-                  <div className="bg-zinc-800/50 rounded-xl p-6 border border-zinc-700">
-                    <h4 className="text-sm font-medium text-zinc-500 mb-4">
+                  <div className="bg-background rounded-xl p-6 border border-border">
+                    <h4 className="text-sm font-medium text-foreground mb-4">
                       Architecture Diagram
                     </h4>
-                    <div className="bg-zinc-900 rounded-lg p-4 overflow-auto">
-                      <pre className="text-xs text-zinc-300 whitespace-pre-wrap">
+                    <div className="bg-foreground rounded-lg p-4 overflow-auto">
+                      <pre className="text-xs text-background whitespace-pre-wrap">
                         {PROJECTS[activeProject].architecture.diagram}
                       </pre>
                     </div>
-                    <p className="text-xs text-zinc-500 mt-2">
-                      Note: This is a Mermaid.js diagram. Replace with actual
-                      diagram in production.
+                    <p className="text-xs text-muted-foreground mt-2">
+                      Description
                     </p>
                   </div>
 
                   {/* Component breakdown */}
                   <div>
-                    <h4 className="text-sm font-medium text-zinc-500 mb-4">
+                    <h4 className="text-sm font-medium text-foreground mb-4">
                       Component Breakdown
                     </h4>
                     <div className="grid md:grid-cols-2 gap-4">
@@ -334,7 +338,7 @@ const ProjectsContent = () => {
                         (component, index) => (
                           <div
                             key={component.name}
-                            className="bg-zinc-800/50 rounded-lg p-4 border border-zinc-700/50 flex items-start gap-3"
+                            className="bg-background rounded-lg p-4 border border-border flex items-start gap-3"
                           >
                             {index === 0 && (
                               <Server size={18} className="text-primary" />
@@ -352,10 +356,10 @@ const ProjectsContent = () => {
                               <Network size={18} className="text-primary" />
                             )}
                             <div>
-                              <h5 className="font-medium text-zinc-300">
+                              <h5 className="font-medium text-muted-foreground">
                                 {component.name}
                               </h5>
-                              <p className="text-sm text-zinc-500">
+                              <p className="text-sm text-foreground">
                                 {component.description}
                               </p>
                             </div>
