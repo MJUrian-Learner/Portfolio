@@ -365,6 +365,63 @@ export const PROJECTS = [
     },
   },
   {
+    title: "AI Content Generator",
+    description:
+      "An AI-powered application that generates custom content for various purposes.",
+    image: "/placeholder.svg?height=600&width=800",
+    tags: ["React", "Node.js", "OpenAI API", "MongoDB"],
+    categories: ["ai", "web"],
+    role: "Full Stack Developer",
+    challenge:
+      "Optimizing API usage to balance cost and performance while providing a responsive user experience.",
+    solution:
+      "Developed a caching system and implemented request throttling to optimize API usage while maintaining a responsive interface.",
+    features: [
+      "AI-powered generation",
+      "Content templates",
+      "User accounts",
+      "Content history",
+      "Export options",
+    ],
+    architecture: {
+      description:
+        "This application uses a React frontend with a Node.js backend that interfaces with the OpenAI API. It implements caching and request optimization to manage API costs and improve performance.",
+      diagram: `
+        graph TD;
+          A["Frontend<br/>(React)"] --> B["Backend API<br/>(Node.js/Express)"];
+          B --> C["AI Service<br/>(OpenAI API)"];
+          B --> D["Cache Layer<br/>(Redis)"];
+          B --> E["Database<br/>(MongoDB)"];
+          F["Authentication<br/>(JWT)"] --> B;
+          G["Rate Limiter"] --> B;
+          H["Content Templates"] --> B;
+          I["Export Service"] --> B;
+      `,
+      components: [
+        {
+          name: "Frontend",
+          description: "React application with modern UI components",
+        },
+        {
+          name: "Backend API",
+          description: "Node.js/Express server handling requests",
+        },
+        {
+          name: "AI Integration",
+          description: "OpenAI API with prompt engineering",
+        },
+        {
+          name: "Caching System",
+          description: "Redis for caching frequent requests",
+        },
+        {
+          name: "Database",
+          description: "MongoDB for user data and content storage",
+        },
+      ],
+    },
+  },
+  {
     title: "E-Commerce Platform",
     description:
       "A full-featured online store with cart, checkout, and payment integration.",
@@ -418,6 +475,64 @@ export const PROJECTS = [
         {
           name: "CMS Integration",
           description: "Headless CMS for content management",
+        },
+      ],
+    },
+  },
+  {
+    title: "Immersive Portfolio",
+    description:
+      "A 3D interactive portfolio experience built with Three.js and React.",
+    image: "/placeholder.svg?height=600&width=800",
+    tags: ["React", "Three.js", "GSAP", "WebGL"],
+    categories: ["web", "interactive"],
+    role: "Lead Developer",
+    challenge:
+      "Creating an immersive 3D experience that's both performant and accessible across devices.",
+    solution:
+      "Implemented progressive enhancement to ensure core content is accessible on all devices while providing enhanced 3D features for capable browsers.",
+    features: [
+      "Interactive 3D environment",
+      "Optimized performance",
+      "Responsive design",
+      "Accessibility features",
+      "Custom animations",
+    ],
+    architecture: {
+      description:
+        "The application uses a component-based architecture with React for UI and Three.js for 3D rendering. Data flows from the state management layer to the rendering components, with optimizations for performance.",
+      diagram: `
+        graph TD;
+          A["User Interface<br/>(React Components)"] --> B["State Management<br/>(Context API)"];
+          B --> C["3D Scene Controller"];
+          C --> D["Three.js Renderer"];
+          C --> E["Asset Loader"];
+          E --> F["3D Models & Textures"];
+          B --> G["Animation System<br/>(GSAP)"];
+          G --> D;
+          H["User Interactions"] --> A;
+          I["Responsive Layout System"] --> A;
+      `,
+      components: [
+        {
+          name: "UI Layer",
+          description: "React components for user interface elements",
+        },
+        {
+          name: "State Management",
+          description: "Context API for managing application state",
+        },
+        {
+          name: "3D Controller",
+          description: "Manages the Three.js scene and camera",
+        },
+        {
+          name: "Asset Management",
+          description: "Handles loading and optimization of 3D assets",
+        },
+        {
+          name: "Animation System",
+          description: "GSAP integration for smooth animations",
         },
       ],
     },
