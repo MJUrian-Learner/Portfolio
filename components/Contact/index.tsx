@@ -16,7 +16,7 @@ const Contact = () => {
     >
       {/* Section background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-zinc-900/30" />
+        <div className="absolute inset-0 bg-background" />
         <div
           className={`absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-primary to-primary/70 opacity-5`}
         />

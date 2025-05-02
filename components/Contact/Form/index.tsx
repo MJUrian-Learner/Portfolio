@@ -24,7 +24,7 @@ const Form = () => {
           <h3 className={`text-xl font-semibold mb-4 text-primary`}>
             Let&apos;s Talk
           </h3>
-          <p className="text-zinc-400">
+          <p className="text-muted-foreground">
             I&apos;m always open to discussing new projects, creative ideas, or
             opportunities to be part of your vision.
           </p>
@@ -36,8 +36,8 @@ const Form = () => {
               <Mail size={18} className="text-primary" />
             </div>
             <div>
-              <p className="text-sm text-zinc-500">Email</p>
-              <p className="text-zinc-300">hello@mjportfolio.com</p>
+              <p className="text-sm text-foreground">Email</p>
+              <p className="text-muted-foreground">hello@mjportfolio.com</p>
             </div>
           </div>
 
@@ -46,14 +46,14 @@ const Form = () => {
               <Compass size={18} className="text-primary" />
             </div>
             <div>
-              <p className="text-sm text-zinc-500">Location</p>
-              <p className="text-zinc-300">San Francisco, CA</p>
+              <p className="text-sm text-foreground">Location</p>
+              <p className="text-muted-foreground">San Francisco, CA</p>
             </div>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-lg font-medium text-zinc-300">Connect</h3>
+          <h3 className="text-lg font-medium text-primary/80">Connect</h3>
           <div className="flex gap-3">
             <SocialLink icon={Code} href="https://github.com" />
             <SocialLink icon={Phone} href="https://linkedin.com" />
