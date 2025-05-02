@@ -35,7 +35,7 @@ const SkillsContent = () => {
               variant="outline"
               className={`px-8 py-6 rounded-xl flex items-center gap-2 transition-all ${
                 activeCategory === key
-                  ? `bg-primary/10 text-foreground shadow-lg`
+                  ? `bg-primary/30 text-foreground shadow-lg`
                   : "text-muted-foreground"
               }`}
             >
