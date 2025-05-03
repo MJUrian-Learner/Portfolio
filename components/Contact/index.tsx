@@ -3,7 +3,7 @@
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { motion } from "motion/react";
 import SectionHeading from "../SectionHeading";
-import Form from "./Form";
+import ContactContent from "./ContactContent";
 
 const Contact = () => {
   const { setActiveSection } = useActiveSection();
@@ -21,10 +21,9 @@ const Contact = () => {
           className={`absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-primary to-primary/70 opacity-5`}
         />
       </div>
-
       <div className="container px-4 md:px-6 relative z-10">
         <SectionHeading>Let&apos;s Connect</SectionHeading>
-        <Form />
+        <ContactContent />
       </div>
     </motion.section>
   );
