@@ -2,9 +2,15 @@
 
 import { ReactNode } from "react";
 
-const SectionHeading = ({ children }: { children: ReactNode }) => {
+const SectionHeading = ({
+  children,
+  position = "left",
+}: {
+  children: ReactNode;
+  position?: "left" | "center" | "right";
+}) => {
   return (
-    <div className="mb-8">
+    <div className={`mb-8 text-${position}`}>
       <h2 className="text-3xl font-bold text-foreground inline-block relative">
         {children}
         <span
