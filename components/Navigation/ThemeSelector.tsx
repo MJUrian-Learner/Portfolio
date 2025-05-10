@@ -11,6 +11,11 @@ import { DarkModeToggle } from "../DarkModeToggle";
 
 type ColorKey = "emerald" | "crimson" | "sapphire" | "amber" | "mint";
 
+interface ThemeSelectorProps {
+  theme: ColorKey;
+  onThemeChange: (theme: ColorKey) => void;
+}
+
 const THEMES: Record<ColorKey, { name: string; color: string }> = {
   emerald: { name: "Emerald", color: "bg-emerald-500" },
   crimson: { name: "Crimson", color: "bg-rose-500" },
@@ -21,12 +26,14 @@ const THEMES: Record<ColorKey, { name: string; color: string }> = {
 
 const COLOR_KEYS = Object.keys(THEMES) as ColorKey[];
 
-const ThemeSelector = () => {
+const ThemeSelector: React.FC<ThemeSelectorProps> = ({
+  theme,
+  onThemeChange,
+}) => {
   const handleColorKey = (colorKey: ColorKey) => {
     const root = window.document.documentElement;
     root.setAttribute("data-theme", colorKey);
-
-    localStorage.setItem("colorKey", colorKey);
+    onThemeChange(colorKey);
   };
 
   return (
@@ -50,12 +57,15 @@ const ThemeSelector = () => {
               <DropdownMenuItem
                 key={key}
                 onClick={() => handleColorKey(key)}
-                className="flex items-center gap-2 cursor-pointer"
+                className={`flex items-center gap-2 cursor-pointer ${
+                  theme === key ? "font-bold text-primary" : ""
+                }`}
               >
                 <span
                   className={`inline-block w-4 h-4 rounded-full ${color}`}
                 />
                 <span>{name}</span>
+                {theme === key && <span className="ml-2">✓</span>}
               </DropdownMenuItem>
             );
           })}
