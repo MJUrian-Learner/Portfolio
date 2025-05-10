@@ -1,8 +1,10 @@
-import { Code, Database, Paintbrush, Wrench } from "lucide-react";
+import { Code, Database, Globe, Layers, Paintbrush, Palette, Smartphone, Wrench, Zap } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 export const NAVIGATION_MENU = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
+  { id: "services", label: "Services" },
   { id: "credentials", label: "Credentials" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
@@ -701,5 +703,56 @@ export const BLOG_POSTS = [
     comments: 6,
     likes: 29,
     views: 750,
+  },
+];
+
+export const SERVICES = [
+  {
+    icon: Code as LucideIcon,
+    title: "Web Development", 
+    description:
+      "Custom websites built with modern frameworks and technologies that deliver exceptional user experiences.",
+    tags: ["React", "Next.js", "TypeScript"],
+    link: "#",
+  },
+  {
+    icon: Palette as LucideIcon,
+    title: "UI/UX Design",
+    description:
+      "Intuitive and visually appealing interfaces that enhance user engagement and satisfaction.",
+    tags: ["Figma", "Adobe XD", "Prototyping"],
+    link: "#",
+  },
+  {
+    icon: Smartphone as LucideIcon,
+    title: "Mobile Development",
+    description:
+      "Native and cross-platform mobile applications that provide seamless experiences across devices.",
+    tags: ["React Native", "Flutter", "iOS/Android"],
+    link: "#",
+  },
+  {
+    icon: Globe as LucideIcon,
+    title: "Digital Strategy",
+    description:
+      "Comprehensive digital strategies that align with your business goals and drive meaningful results.",
+    tags: ["SEO", "Analytics", "Growth"],
+    link: "#",
+  },
+  {
+    icon: Layers as LucideIcon,
+    title: "Full-Stack Solutions",
+    description:
+      "End-to-end development services that cover both frontend and backend requirements.",
+    tags: ["Node.js", "MongoDB", "AWS"],
+    link: "#",
+  },
+  {
+    icon: Zap as LucideIcon,
+    title: "Performance Optimization",
+    description:
+      "Enhance your existing digital products with improved speed, efficiency, and user experience.",
+    tags: ["Core Web Vitals", "Caching", "Optimization"],
+    link: "#",
   },
 ];

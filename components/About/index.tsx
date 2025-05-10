@@ -33,7 +33,7 @@ const About = () => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
       >
-        <ScrollDownButton to="#credentials" item="credentials" />
+        <ScrollDownButton to="#services" item="services" />
       </motion.div>
     </motion.section>
   );

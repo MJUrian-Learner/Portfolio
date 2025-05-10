@@ -5,6 +5,7 @@ import React, { createContext, useState, ReactNode } from "react";
 export type SectionId =
   | "hero"
   | "about"
+  | "services"
   | "credentials"
   | "skills"
   | "projects"
