@@ -25,14 +25,10 @@ export default function Services() {
             create meaningful user experiences.
           </p>
         </div>
+
         <ServicesContent />
-        <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        >
-          <ScrollDownButton to="#credentials" item="credentials" />
-        </motion.div>
+
+        <ScrollDownButton to="#credentials" item="credentials" />
       </div>
     </motion.section>
   );

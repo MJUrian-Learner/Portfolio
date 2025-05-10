@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
-import ScrollDownButton from "../ScrollDownButton";
 import Copywrite from "./Copywrite";
 import GridLines from "./GridLines";
-import HeroImage from "./HeroImage";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import ScrollDownButton from "../ScrollDownButton";
+import HeroImage from "./HeroImage";
 
 const Hero = () => {
   const { setActiveSection } = useActiveSection();
@@ -21,17 +21,13 @@ const Hero = () => {
       <div className="container px-6 relative z-10">
         <div className="mx-10 grid grid-cols-2 gap-60 h-full items-center">
           <Copywrite />
-          <HeroImage />
+          <div className="hidden sm:block">
+            <HeroImage />
+          </div>
         </div>
       </div>
 
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-      >
-        <ScrollDownButton to="#about" item="about" />
-      </motion.div>
+      <ScrollDownButton to="#about" item="about" />
     </motion.section>
   );
 };

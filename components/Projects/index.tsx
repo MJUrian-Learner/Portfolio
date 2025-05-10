@@ -30,13 +30,8 @@ const Projects = () => {
         <SectionHeading>Featured Work</SectionHeading>
         <ProjectsContent />
       </div>
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-      >
-        <ScrollDownButton to="#blog" item="blog" />
-      </motion.div>
+
+      <ScrollDownButton to="#blog" item="blog" />
     </motion.section>
   );
 };

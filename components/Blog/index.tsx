@@ -32,13 +32,8 @@ const Blog = () => {
         <SectionHeading>Latest Articles</SectionHeading>
         <BlogContent />
       </div>
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-      >
-        <ScrollDownButton to="#contact" item="contact" />
-      </motion.div>
+
+      <ScrollDownButton to="#contact" item="contact" />
     </motion.section>
   );
 };
