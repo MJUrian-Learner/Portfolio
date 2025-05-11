@@ -14,7 +14,7 @@ interface ExperienceItemProps {
 
 const ExperienceItem = ({ ...props }: ExperienceItemProps) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <motion.div

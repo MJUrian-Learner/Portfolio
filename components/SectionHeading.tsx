@@ -1,16 +1,19 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, HTMLAttributes } from "react";
 
 const SectionHeading = ({
   children,
   position = "left",
+  className = "",
+  ...props
 }: {
   children: ReactNode;
   position?: "left" | "center" | "right";
-}) => {
+  className?: string;
+} & HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className={`mb-8 text-${position}`}>
+    <div className={`mb-8 text-${position} ${className}`} {...props}>
       <h2 className="text-3xl font-bold text-foreground inline-block relative">
         {children}
         <span

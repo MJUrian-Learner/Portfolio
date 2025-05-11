@@ -19,12 +19,12 @@ const Copywrite = () => {
         transition={{ delay: 0.3, type: "spring" }}
       >
         <Badge className={`rounded-full px-3 py-1 text-sm `}>
-          Full-Stack Developer & Designer
+          Full-Stack Developer
         </Badge>
       </motion.div>
 
       <motion.h1
-        className={`text-6xl font-bold mb-6 leading-tight  bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 `}
+        className={`text-4xl md:text-6xl font-bold mb-2 md:mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 `}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
@@ -34,7 +34,7 @@ const Copywrite = () => {
       </motion.h1>
 
       <motion.p
-        className="text-xl md:text-2xl dark:text-zinc-400 mb-8"
+        className="text-lg md:text-2xl dark:text-zinc-400 mb-4 md:mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7, duration: 1 }}
@@ -48,11 +48,11 @@ const Copywrite = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.9 }}
-        className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+        className="flex flex-col sm:flex-row gap-2 md:gap-4 justify-center md:justify-start"
       >
         <Link href="#projects">
           <Button
-            className={`bg-primary hover:opacity-90 dark:text-zinc-950 group relative overflow-hidden`}
+            className={`bg-primary hover:opacity-90 dark:text-background group relative overflow-hidden`}
           >
             <span className="relative z-10 flex items-center gap-2">
               View My Portfolio{" "}

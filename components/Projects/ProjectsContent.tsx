@@ -21,7 +21,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 
 const ProjectsContent = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   const [activeProject, setActiveProject] = useState(0);
   const [activeTab, setActiveTab] = useState("overview");
@@ -173,15 +173,15 @@ const ProjectsContent = () => {
             >
               <TabsList className="grid w-full grid-cols-2 mb-8">
                 <TabsTrigger value="overview" className="text-sm">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1 md:gap-2">
                     <Layers size={16} />
-                    Project Overview
+                    Overview
                   </div>
                 </TabsTrigger>
                 <TabsTrigger value="architecture" className="text-sm">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1 md:gap-2">
                     <Workflow size={16} />
-                    System Architecture
+                    Architecture
                   </div>
                 </TabsTrigger>
               </TabsList>

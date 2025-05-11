@@ -14,7 +14,7 @@ interface EducationItemProps {
 
 const EducationItem = ({ ...props }: EducationItemProps) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
   return (
     <motion.div
       ref={ref}

@@ -18,12 +18,12 @@ const About = () => {
       viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >
       <DiagonalBackground side="left" />
-      <div className="container px-4 md:px-6 relative z-10">
+      <div className="container relative z-10">
         <div className="grid sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 md:gap-12 items-center">
-          <div className="sm:col-span-1 md:col-span-2 md:order-1 order-2">
+          <div className="sm:col-span-1 md:col-span-2">
             <AboutImage />
           </div>
-          <div className="sm:col-span-2 md:col-span-3 md:order-2 order-1">
+          <div className="sm:col-span-2 md:col-span-3">
             <AboutContent />
           </div>
         </div>

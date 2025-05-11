@@ -3,6 +3,7 @@
 import { motion, useInView } from "motion/react";
 import Image from "next/image";
 import { useRef } from "react";
+import SectionHeading from "../SectionHeading";
 
 const AboutImage = () => {
   const ref = useRef(null);
@@ -16,7 +17,8 @@ const AboutImage = () => {
       transition={{ duration: 0.8 }}
       className="relative"
     >
-      <div className="relative aspect-square max-w-md mx-auto ">
+      <SectionHeading className="block md:hidden">About Me</SectionHeading>
+      <div className="relative aspect-square max-w-md  ">
         {/* Decorative elements */}
         <div
           className={`absolute inset-0 border-2 bg-primary/20 text-primary border-primary/30 rounded-lg transform rotate-3`}

@@ -19,7 +19,7 @@ const Hero = () => {
       <GridLines />
 
       <div className="container px-6 relative z-10">
-        <div className="mx-10 grid grid-cols-2 gap-60 h-full items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-60 h-full items-center">
           <Copywrite />
           <div className="hidden sm:block">
             <HeroImage />

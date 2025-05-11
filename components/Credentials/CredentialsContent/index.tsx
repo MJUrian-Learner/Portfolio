@@ -22,19 +22,19 @@ const CredentialsContent = () => {
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid w-full grid-cols-3 mb-8">
           <TabsTrigger value="education" className="text-sm">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 md:gap-2">
               <GraduationCap size={16} />
               Education
             </div>
           </TabsTrigger>
           <TabsTrigger value="certifications" className="text-sm">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 md:gap-2">
               <Award size={16} />
               Certifications
             </div>
           </TabsTrigger>
           <TabsTrigger value="experience" className="text-sm">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 md:gap-2">
               <Briefcase size={16} />
               Experience
             </div>

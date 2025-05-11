@@ -9,7 +9,7 @@ import { Button } from "../ui/button";
 
 const SkillsContent = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   const [activeCategory, setActiveCategory] = useState("frontend");
 
