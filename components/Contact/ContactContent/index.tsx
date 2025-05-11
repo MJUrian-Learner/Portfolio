@@ -1,9 +1,8 @@
-import React from "react";
-import { Bird, Code, Compass, Mail, Phone, Share2 } from "lucide-react";
+import { Compass, Mail } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-import SocialButton from "./SocialButton";
 import ContactForm from "./ContactForm";
+import SocialButton from "./SocialButton";
 
 const ContactContent = () => {
   const ref = useRef(null);
@@ -52,10 +51,18 @@ const ContactContent = () => {
         <div className="space-y-4">
           <h3 className="text-lg font-medium text-primary/80">Connect</h3>
           <div className="flex gap-3">
-            <SocialButton icon={Code} href="https://github.com" />
-            <SocialButton icon={Phone} href="https://linkedin.com" />
-            <SocialButton icon={Bird} href="https://twitter.com" />
-            <SocialButton icon={Share2} href="https://twitter.com/share" />
+            <SocialButton
+              logoLink="/github.png"
+              href="https://github.com/MJUrian-Learner"
+            />
+            <SocialButton
+              logoLink="/linkedin.png"
+              href="https://www.linkedin.com/in/michael-james-urian-84b130283/"
+            />
+            <SocialButton
+              logoLink="/facebook.png"
+              href="https://www.facebook.com/mjnairu"
+            />
           </div>
         </div>
       </div>
