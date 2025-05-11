@@ -46,7 +46,7 @@ const Navigation = () => {
                     <PortfolioLogo className="w-12 h-12" />
                   </ThemeProvider>
                 </span>
-                <span className="-ml-1 bg-clip-text text-transparent bg-gradient-to-r from-primary to-muted-foreground dark:to-foreground">
+                <span className="-ml-1 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
                   Portfolio
                 </span>
               </Link>
