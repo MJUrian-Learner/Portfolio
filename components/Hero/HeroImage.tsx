@@ -11,10 +11,8 @@ const HeroImage = () => {
       className="
         relative      
         mx-auto      
-        w-[280px]
-        sm:w-[320px]
-        md:w-[380px]   
-        lg:w-[440px]  
+        w-[380px]   
+        2xl:w-[440px]  
       "
     >
       <div className="relative w-full aspect-square">

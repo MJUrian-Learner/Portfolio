@@ -60,7 +60,8 @@ const Navigation = () => {
                   Portfolio
                 </span>
               </Link>
-              <nav className="hidden md:flex items-center space-x-1 pb-1 max-w-[500px] md:max-w-none">
+              {/* Desktop Menu */}
+              <nav className="hidden lg:flex items-center space-x-1 pb-1 max-w-[500px] md:max-w-none">
                 {NAVIGATION_MENU.map((item) => (
                   <motion.div
                     key={item.id}
@@ -85,6 +86,12 @@ const Navigation = () => {
                   </motion.div>
                 ))}
               </nav>
+              <ThemeSelector
+                className="hidden lg:block gap-2"
+                theme={theme}
+                onThemeChange={handleThemeChange}
+              />
+              {/* Mobile Menu */}
               <Drawer
                 modal={false}
                 direction="right"
@@ -94,11 +101,11 @@ const Navigation = () => {
                 <DrawerTrigger
                   aria-label="Open menu"
                   onClick={() => setIsOpen(true)}
-                  className="md:hidden"
+                  className="lg:hidden"
                 >
                   <Menu />
                 </DrawerTrigger>
-                <DrawerContent className="sm:hidden flex flex-col p-0">
+                <DrawerContent className="lg:hidden flex flex-col p-0">
                   <DrawerHeader className="flex items-end justify-between p-4">
                     <DrawerTitle hidden>Menu</DrawerTitle>
                     <DrawerClose asChild>
@@ -141,11 +148,6 @@ const Navigation = () => {
                   </div>
                 </DrawerContent>
               </Drawer>
-              <ThemeSelector
-                className="hidden md:block gap-2"
-                theme={theme}
-                onThemeChange={handleThemeChange}
-              />
             </div>
           </motion.div>
         </div>
