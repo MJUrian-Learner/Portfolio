@@ -12,7 +12,7 @@ const Skills = () => {
   return (
     <motion.section
       id="skills"
-      className="relative min-h-screen flex items-center py-30"
+      className="relative min-h-dvh flex items-center py-28 md:py-20"
       onViewportEnter={() => setActiveSection("skills")}
       viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >

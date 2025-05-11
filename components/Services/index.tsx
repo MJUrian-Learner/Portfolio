@@ -13,7 +13,7 @@ export default function Services() {
   return (
     <motion.section
       id="services"
-      className="relative min-h-dvh flex items-center py-20"
+      className="relative min-h-dvh flex items-center py-28 md:py-20"
       onViewportEnter={() => setActiveSection("services")}
       viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >

@@ -13,7 +13,7 @@ const About = () => {
   return (
     <motion.section
       id="about"
-      className="relative min-h-dvh flex items-center py-20"
+      className="relative min-h-dvh flex items-center py-28 md:py-20"
       onViewportEnter={() => setActiveSection("about")}
       viewport={{ amount: 0.5, margin: "-80px 0px 0px 0px" }}
     >
