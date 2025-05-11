@@ -8,10 +8,11 @@ import {
 import { Palette } from "lucide-react";
 import { Button } from "../ui/button";
 import { DarkModeToggle } from "../DarkModeToggle";
+import { HTMLAttributes } from "react";
 
 type ColorKey = "emerald" | "crimson" | "sapphire" | "amber" | "mint";
 
-interface ThemeSelectorProps {
+interface ThemeSelectorProps extends HTMLAttributes<HTMLDivElement> {
   theme: ColorKey;
   onThemeChange: (theme: ColorKey) => void;
 }
@@ -29,6 +30,8 @@ const COLOR_KEYS = Object.keys(THEMES) as ColorKey[];
 const ThemeSelector: React.FC<ThemeSelectorProps> = ({
   theme,
   onThemeChange,
+  className = "",
+  ...props
 }) => {
   const handleColorKey = (colorKey: ColorKey) => {
     const root = window.document.documentElement;
@@ -37,7 +40,7 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className={`flex items-center ${className}`} {...props}>
       <DarkModeToggle />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

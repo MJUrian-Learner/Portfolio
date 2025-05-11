@@ -10,10 +10,20 @@ import ThemeSelector from "./ThemeSelector";
 import PortfolioLogo from "./PortfolioLogo";
 import { ThemeProvider, ThemeType } from "./ThemeContext";
 import { useState, useEffect } from "react";
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerClose,
+} from "@/components/ui/drawer";
+import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const { activeSection, setActiveSection } = useActiveSection();
   const [theme, setTheme] = useState<ThemeType>("emerald");
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem("colorKey");
@@ -50,7 +60,7 @@ const Navigation = () => {
                   Portfolio
                 </span>
               </Link>
-              <nav className="hidden sm:flex items-center space-x-1 pb-1 max-w-[500px] md:max-w-none">
+              <nav className="hidden md:flex items-center space-x-1 pb-1 max-w-[500px] md:max-w-none">
                 {NAVIGATION_MENU.map((item) => (
                   <motion.div
                     key={item.id}
@@ -75,7 +85,67 @@ const Navigation = () => {
                   </motion.div>
                 ))}
               </nav>
-              <ThemeSelector theme={theme} onThemeChange={handleThemeChange} />
+              <Drawer
+                modal={false}
+                direction="right"
+                open={isOpen}
+                onOpenChange={setIsOpen}
+              >
+                <DrawerTrigger
+                  aria-label="Open menu"
+                  onClick={() => setIsOpen(true)}
+                  className="md:hidden"
+                >
+                  <Menu />
+                </DrawerTrigger>
+                <DrawerContent className="sm:hidden flex flex-col p-0">
+                  <DrawerHeader className="flex items-end justify-between p-4">
+                    <DrawerTitle hidden>Menu</DrawerTitle>
+                    <DrawerClose asChild>
+                      <Button variant="ghost" size="icon">
+                        <X />
+                      </Button>
+                    </DrawerClose>
+                  </DrawerHeader>
+                  <nav className="flex flex-col space-y-2 px-4 pb-4">
+                    {NAVIGATION_MENU.map((item) => (
+                      <Link
+                        key={item.id}
+                        href={`#${item.id as SectionId}`}
+                        onClick={() => {
+                          setActiveSection(`${item.id as SectionId}`);
+                          setIsOpen(false);
+                        }}
+                      >
+                        <Button
+                          className={`w-full justify-start px-4 py-3 rounded-lg text-base font-medium ${
+                            activeSection === item.id
+                              ? `bg-primary/10 dark:bg-zinc-800/80 text-primary`
+                              : "text-foreground"
+                          }`}
+                          variant="ghost"
+                          asChild
+                        >
+                          <span>{item.label}</span>
+                        </Button>
+                      </Link>
+                    ))}
+                  </nav>
+                  <div className="px-8 pb-4">
+                    <h3>Theme Selector</h3>
+                    <ThemeSelector
+                      className="flex justify-start gap-0"
+                      theme={theme}
+                      onThemeChange={handleThemeChange}
+                    />
+                  </div>
+                </DrawerContent>
+              </Drawer>
+              <ThemeSelector
+                className="hidden md:block gap-2"
+                theme={theme}
+                onThemeChange={handleThemeChange}
+              />
             </div>
           </motion.div>
         </div>
