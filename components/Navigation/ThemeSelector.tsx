@@ -42,7 +42,7 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
   return (
     <div className={`flex items-center ${className}`} {...props}>
       <DarkModeToggle />
-      <DropdownMenu>
+      <DropdownMenu modal={false}>
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
