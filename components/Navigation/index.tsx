@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { NAVIGATION_MENU } from "@/constants";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { SectionId } from "@/providers/ActiveSectionProvider";
-import { motion } from "motion/react";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import Link from "next/link";
 import ThemeSelector from "./ThemeSelector";
 import PortfolioLogo from "./PortfolioLogo";
@@ -29,6 +29,18 @@ const Navigation = () => {
   const [colorTheme, setColorTheme] = useState<ColorThemeType>("emerald");
   const [isOpen, setIsOpen] = useState(false);
 
+  const { scrollY } = useScroll();
+  const [navHidden, setNavHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    if (previous && latest > previous && latest > 150) {
+      setNavHidden(true);
+    } else {
+      setNavHidden(false);
+    }
+  });
+
   useEffect(() => {
     const stored = localStorage.getItem("colorKey");
     if (
@@ -44,7 +56,20 @@ const Navigation = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40">
+    <motion.header
+      variants={{
+        visible: {
+          y: 0,
+        },
+        hidden: {
+          y: -100,
+        },
+      }}
+      initial="visible"
+      animate={navHidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 z-40"
+    >
       <div className="container px-4 mx-auto">
         <div className="relative">
           <motion.div
@@ -160,7 +185,7 @@ const Navigation = () => {
           </motion.div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
