@@ -23,6 +23,7 @@ import {
   ColorThemeProvider,
   ColorThemeType,
 } from "@/providers/ColorThemeProvider";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const Navigation = () => {
   const { activeSection, setActiveSection } = useActiveSection();
@@ -32,9 +33,11 @@ const Navigation = () => {
   const { scrollY } = useScroll();
   const [navHidden, setNavHidden] = useState(false);
 
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
-    if (previous && latest > previous && latest > 150) {
+    if (!isDesktop && previous && latest > previous && latest > 150) {
       setNavHidden(true);
     } else {
       setNavHidden(false);
