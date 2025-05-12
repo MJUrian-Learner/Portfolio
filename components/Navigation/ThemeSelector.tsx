@@ -1,14 +1,13 @@
-import React from "react";
+import { Moon, Palette, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import React, { HTMLAttributes, useState } from "react";
+import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { Palette } from "lucide-react";
-import { Button } from "../ui/button";
-import { DarkModeToggle } from "../DarkModeToggle";
-import { HTMLAttributes } from "react";
 
 type ColorKey = "emerald" | "crimson" | "sapphire" | "amber" | "mint";
 
@@ -33,6 +32,20 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
   className = "",
   ...props
 }) => {
+  const { theme: currentTheme, setTheme } = useTheme();
+  const [themeMenuOpen, setThemeMenuOpen] = useState<boolean>(false);
+  const [colorMenuOpen, setColorMenuOpen] = useState<boolean>(false);
+
+  const handleThemeMenuOpen = () => {
+    setThemeMenuOpen(!themeMenuOpen);
+    setColorMenuOpen(false);
+  };
+
+  const handleColorMenuOpen = () => {
+    setColorMenuOpen(!colorMenuOpen);
+    setThemeMenuOpen(false);
+  };
+
   const handleColorKey = (colorKey: ColorKey) => {
     const root = window.document.documentElement;
     root.setAttribute("data-theme", colorKey);
@@ -41,8 +54,48 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
 
   return (
     <div className={`flex items-center ${className}`} {...props}>
-      <DarkModeToggle />
-      <DropdownMenu modal={false}>
+      <DropdownMenu open={themeMenuOpen} onOpenChange={handleThemeMenuOpen}>
+        <DropdownMenuTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="dark:text-foreground dark:hover:text-foreground hover:bg-foreground/10 rounded-lg"
+          >
+            <Sun
+              size={18}
+              className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 "
+            />
+            <Moon
+              size={18}
+              className="absolute  rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+            />
+            <span className="sr-only">Toggle theme</span>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem
+            onClick={() => setTheme("light")}
+            className={currentTheme === "light" ? "font-bold text-primary" : ""}
+          >
+            Light
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => setTheme("dark")}
+            className={currentTheme === "dark" ? "font-bold text-primary" : ""}
+          >
+            Dark
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => setTheme("system")}
+            className={
+              currentTheme === "system" ? "font-bold text-primary" : ""
+            }
+          >
+            System
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+      <DropdownMenu open={colorMenuOpen} onOpenChange={handleColorMenuOpen}>
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"

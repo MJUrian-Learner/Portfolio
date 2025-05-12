@@ -13,13 +13,13 @@ const SocialButton = ({ ...props }: SocialButtonProps) => {
       <Button
         variant="outline"
         size="icon"
-        className="rounded-full w-12 h-12 relative hover:bg-gray-300"
+        className="rounded-full lg:w-12 lg:h-12 relative hover:bg-gray-300"
       >
         <Image
           src={props.logoLink}
           alt="Social Icon"
           fill
-          className="rounded-full object-cover p-1"
+          className="rounded-full object-cover"
         />
       </Button>
     </Link>

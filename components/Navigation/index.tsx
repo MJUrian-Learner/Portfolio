@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import ThemeSelector from "./ThemeSelector";
 import PortfolioLogo from "./PortfolioLogo";
-import { ThemeProvider, ThemeType } from "./ThemeContext";
+
 import { useState, useEffect } from "react";
 import {
   Drawer,
@@ -19,10 +19,14 @@ import {
   DrawerClose,
 } from "@/components/ui/drawer";
 import { Menu, X } from "lucide-react";
+import {
+  ColorThemeProvider,
+  ColorThemeType,
+} from "@/providers/ColorThemeProvider";
 
 const Navigation = () => {
   const { activeSection, setActiveSection } = useActiveSection();
-  const [theme, setTheme] = useState<ThemeType>("emerald");
+  const [colorTheme, setColorTheme] = useState<ColorThemeType>("emerald");
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -31,11 +35,11 @@ const Navigation = () => {
       stored &&
       ["emerald", "crimson", "sapphire", "amber", "mint"].includes(stored)
     )
-      setTheme(stored as ThemeType);
+      setColorTheme(stored as ColorThemeType);
   }, []);
 
-  const handleThemeChange = (newTheme: ThemeType) => {
-    setTheme(newTheme);
+  const handleThemeChange = (newTheme: ColorThemeType) => {
+    setColorTheme(newTheme);
     localStorage.setItem("colorKey", newTheme);
   };
 
@@ -52,9 +56,9 @@ const Navigation = () => {
             <div className="flex items-center justify-between h-16 px-6 text-xl font-bold">
               <Link href="#hero" className="flex items-center">
                 <span>
-                  <ThemeProvider value={theme}>
+                  <ColorThemeProvider value={colorTheme}>
                     <PortfolioLogo className="w-12 h-12" />
-                  </ThemeProvider>
+                  </ColorThemeProvider>
                 </span>
                 <span className="-ml-1 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 tracking-wider">
                   Portfolio
@@ -91,7 +95,7 @@ const Navigation = () => {
               <div className="flex items-center gap-2">
                 <ThemeSelector
                   className="hidden md:block gap-2"
-                  theme={theme}
+                  theme={colorTheme}
                   onThemeChange={handleThemeChange}
                 />
                 <Drawer
@@ -116,7 +120,7 @@ const Navigation = () => {
                         </Button>
                       </DrawerClose>
                     </DrawerHeader>
-                    <nav className="flex flex-col space-y-2 px-4 pb-4">
+                    <nav className="flex flex-col space-y-2 px-4">
                       {NAVIGATION_MENU.map((item) => (
                         <Link
                           key={item.id}
@@ -140,11 +144,12 @@ const Navigation = () => {
                         </Link>
                       ))}
                     </nav>
-                    <div className="px-8 pb-4 md:hidden">
-                      <h3>Theme Selector</h3>
+                    <hr className="my-3 bg-primary w-10/12 mx-auto" />
+                    <div className="px-8 pb-4 md:hidden ">
+                      <span className="text-foreground">Theme Selector</span>
                       <ThemeSelector
                         className="flex justify-start gap-0 "
-                        theme={theme}
+                        theme={colorTheme}
                         onThemeChange={handleThemeChange}
                       />
                     </div>

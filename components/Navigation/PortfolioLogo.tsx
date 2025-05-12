@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "./ThemeContext";
+import { useColorTheme } from "@/hooks/useColorTheme";
+import React from "react";
 
 interface PortfolioLogoProps {
   className?: string;
@@ -29,8 +29,8 @@ const themes = {
 };
 
 const PortfolioLogo: React.FC<PortfolioLogoProps> = ({ className = "" }) => {
-  const theme = useContext(ThemeContext);
-  const currentTheme = themes[theme as keyof typeof themes];
+  const colorTheme = useColorTheme();
+  const currentTheme = themes[colorTheme as keyof typeof themes];
   const gradientFrom = currentTheme.gradientFrom;
   const gradientTo = currentTheme.gradientTo;
 
