@@ -15,9 +15,11 @@ const AboutImage = () => {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.8 }}
-      className="relative"
+      className="relative      
+        w-[315px]   
+        xl:w-[440px]  "
     >
-      <SectionHeading className="block md:hidden">About Me</SectionHeading>
+      <SectionHeading className="block lg:hidden">About Me</SectionHeading>
       <div className="relative aspect-square max-w-md  ">
         {/* Decorative elements */}
         <div

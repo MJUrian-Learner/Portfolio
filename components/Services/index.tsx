@@ -20,7 +20,7 @@ export default function Services() {
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center text-center mb-12">
           <SectionHeading>Transforming Your Digital Vision</SectionHeading>
-          <p className="max-w-[700px] text-muted-foreground md:text-xl">
+          <p className="max-w-[700px] text-muted-foreground lg:text-xl">
             Comprehensive digital services tailored to elevate your brand and
             create meaningful user experiences.
           </p>

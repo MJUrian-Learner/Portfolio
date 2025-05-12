@@ -9,7 +9,7 @@ const ScrollDownButton = ({ to, item }: { to: string; item: SectionId }) => {
   const { setActiveSection } = useActiveSection();
   return (
     <motion.div
-      className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden sm:block"
+      className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden 2xl:block"
       animate={{ y: [0, 10, 0] }}
       transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
     >

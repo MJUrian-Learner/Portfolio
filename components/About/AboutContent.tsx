@@ -16,8 +16,8 @@ const AboutContent = () => {
       transition={{ duration: 0.8 }}
       className="space-y-6"
     >
-      <SectionHeading className="hidden md:block">About Me</SectionHeading>
-      <div className="space-y-4 dark:text-muted-foreground text-justify text-lg leading-snug md:leading-normal">
+      <SectionHeading className="hidden lg:block">About Me</SectionHeading>
+      <div className="space-y-4 dark:text-muted-foreground text-justify lg:text-lg leading-snug md:leading-normal">
         <p>
           I&apos;m a creative developer who thrives at the intersection of
           design and technology. With a passion for building immersive digital
