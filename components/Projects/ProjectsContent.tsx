@@ -86,7 +86,7 @@ const ProjectsContent = () => {
 
           {/* Scrollable project list with adjusted height for tablets */}
           <div className="relative">
-            <div className="relative rounded-xl border border-primary/10 overflow-hidden">
+            <div className="relative rounded-xl border border-primary/10 overflow-hidden ">
               <div className="max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh]  overflow-y-auto overflow-x-auto p-2 space-y-3 sm:space-y-4 ">
                 {PROJECTS.filter(
                   (project) =>
@@ -150,7 +150,7 @@ const ProjectsContent = () => {
               </div>
               {/* Scroll indicator - only shows when there are more projects than fit in the viewport */}
               <div
-                className={`absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-muted-foreground to-transparent pointer-events-none ${
+                className={`absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-primary/50 to-primary/20  pointer-events-none ${
                   PROJECTS.filter(
                     (p) =>
                       activeFilter === "all" ||
