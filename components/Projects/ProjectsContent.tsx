@@ -86,80 +86,81 @@ const ProjectsContent = () => {
 
           {/* Scrollable project list with adjusted height for tablets */}
           <div className="relative">
-            <div className="max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh] overflow-y-auto overflow-x-auto pr-2 space-y-3 sm:space-y-4 ">
-              {PROJECTS.filter(
-                (project) =>
-                  activeFilter === "all" ||
-                  project.categories.includes(activeFilter)
-              ).map((project, index) => (
-                <motion.button
-                  key={index}
-                  className={`relative overflow-visible w-full p-4 rounded-xl text-left transition-all ${
-                    activeProject === index
-                      ? "bg-primary/10 hover:bg-primary/30 border border-primary/10"
-                      : `bg-background border border-primary/10 shadow-lg`
-                  }`}
-                  onClick={() => {
-                    setActiveProject(index);
-                    setActiveTab("overview");
-                  }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="relative z-10">
-                    <h3
-                      className={`font-medium mb-1 ${
-                        activeProject === index
-                          ? "text-primary"
-                          : "text-foreground"
-                      }`}
-                    >
-                      {project.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground line-clamp-2">
-                      {project.description}
-                    </p>
+            <div className="relative rounded-xl border border-primary/10 overflow-hidden">
+              <div className="max-h-[40vh] sm:max-h-[50vh] md:max-h-[60vh]  overflow-y-auto overflow-x-auto p-2 space-y-3 sm:space-y-4 ">
+                {PROJECTS.filter(
+                  (project) =>
+                    activeFilter === "all" ||
+                    project.categories.includes(activeFilter)
+                ).map((project, index) => (
+                  <motion.button
+                    key={index}
+                    className={`relative overflow-visible w-full p-4 rounded-xl text-left transition-all ${
+                      activeProject === index
+                        ? "bg-primary/10 hover:bg-primary/30 border border-primary/10"
+                        : `bg-background border border-primary/10 shadow-lg`
+                    }`}
+                    onClick={() => {
+                      setActiveProject(index);
+                      setActiveTab("overview");
+                    }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <div className="relative z-10">
+                      <h3
+                        className={`font-medium mb-1 ${
+                          activeProject === index
+                            ? "text-primary"
+                            : "text-foreground"
+                        }`}
+                      >
+                        {project.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground line-clamp-2">
+                        {project.description}
+                      </p>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {project.tags.slice(0, 2).map((tag, i) => (
-                        <span
-                          key={i}
-                          className="text-[10px] px-1.5 py-0.5 rounded bg-primary/20 text-foreground/80"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                      {project.tags.length > 2 && (
-                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-primary/20 text-foreground/80">
-                          +{project.tags.length - 2}
-                        </span>
-                      )}
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-1 mt-2">
+                        {project.tags.slice(0, 2).map((tag, i) => (
+                          <span
+                            key={i}
+                            className="text-[10px] px-1.5 py-0.5 rounded bg-primary/20 text-foreground/80"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        {project.tags.length > 2 && (
+                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-primary/20 text-foreground/80">
+                            +{project.tags.length - 2}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Active indicator */}
-                  {/* {activeProject === index && (
+                    {/* Active indicator */}
+                    {/* {activeProject === index && (
                     <div
                       className={`absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-l-lg`}
                     />
                   )} */}
-                </motion.button>
-              ))}
+                  </motion.button>
+                ))}
+              </div>
+              {/* Scroll indicator - only shows when there are more projects than fit in the viewport */}
+              <div
+                className={`absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-muted-foreground to-transparent pointer-events-none ${
+                  PROJECTS.filter(
+                    (p) =>
+                      activeFilter === "all" ||
+                      p.categories.includes(activeFilter)
+                  ).length > 5
+                    ? "opacity-10"
+                    : "opacity-0"
+                }`}
+              />
             </div>
-
-            {/* Scroll indicator - only shows when there are more projects than fit in the viewport */}
-            <div
-              className={`absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-muted-foreground to-transparent pointer-events-none ${
-                PROJECTS.filter(
-                  (p) =>
-                    activeFilter === "all" ||
-                    p.categories.includes(activeFilter)
-                ).length > 5
-                  ? "opacity-10"
-                  : "opacity-0"
-              }`}
-            />
           </div>
         </div>
 
