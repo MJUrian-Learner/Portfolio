@@ -25,7 +25,7 @@ const Skills = () => {
       </div>
 
       <div className="container px-4 md:px-6 relative z-10">
-        <SectionHeading position="center">Tech Expertise</SectionHeading>
+        <SectionHeading position="left">Tech Expertise</SectionHeading>
         <InteractiveSkillsShowcase />
       </div>
 

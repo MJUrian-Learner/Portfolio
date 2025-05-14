@@ -5,7 +5,13 @@ import { Star } from "lucide-react";
 import { AnimatePresence, motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
 import { Badge } from "../ui/badge";
-import { Button } from "../ui/button";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "../ui/select";
 
 const SkillsContent = () => {
   const ref = useRef(null);
@@ -19,51 +25,59 @@ const SkillsContent = () => {
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : {}}
       transition={{ duration: 0.8 }}
-      className="mt-12"
+      className="mt-6"
     >
-      {/* Category navigation */}
-      <div className="flex flex-wrap justify-center gap-4 mb-12">
-        {Object.entries(SKILL_CATEGORIES).map(([key, category]) => (
-          <motion.div
-            key={key}
-            className="transition-all"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button
-              onClick={() => setActiveCategory(key)}
-              variant="outline"
-              className={`px-8 py-6 rounded-xl flex items-center gap-2 transition-all ${
-                activeCategory === key
-                  ? `bg-primary/30 text-foreground shadow-lg`
-                  : "text-muted-foreground"
-              }`}
-            >
-              <span>
-                <category.icon size={24} />
+      <div>
+        {/* Category navigation */}
+        <Select value={activeCategory} onValueChange={setActiveCategory}>
+          <SelectTrigger className="w-full max-w-xs py-6 rounded-xl text-lg">
+            <SelectValue>
+              <span className="flex items-center gap-3 ">
+                {(() => {
+                  const Icon =
+                    SKILL_CATEGORIES[
+                      activeCategory as keyof typeof SKILL_CATEGORIES
+                    ].icon;
+                  return <Icon size={24} className="text-foreground" />;
+                })()}
+                {
+                  SKILL_CATEGORIES[
+                    activeCategory as keyof typeof SKILL_CATEGORIES
+                  ].title
+                }
               </span>
-              <span>{category.title}</span>
-            </Button>
-          </motion.div>
-        ))}
-      </div>
+            </SelectValue>
+          </SelectTrigger>
+          <SelectContent>
+            {Object.entries(SKILL_CATEGORIES).map(([key, category]) => (
+              <SelectItem key={key} value={key} className="text-lg ">
+                <span className="flex items-center gap-3">
+                  <category.icon size={20} className="text-foreground" />
+                  {category.title}
+                </span>
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
 
-      {/* Active category description */}
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={activeCategory}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="text-zinc-400"
-          >
-            {
-              SKILL_CATEGORIES[activeCategory as keyof typeof SKILL_CATEGORIES]
-                .description
-            }
-          </motion.p>
-        </AnimatePresence>
+        {/* Active category description */}
+        <div className="pl-3 mt-3 mb-6">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={activeCategory}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="text-muted-foreground"
+            >
+              {
+                SKILL_CATEGORIES[
+                  activeCategory as keyof typeof SKILL_CATEGORIES
+                ].description
+              }
+            </motion.p>
+          </AnimatePresence>
+        </div>
       </div>
 
       {/* Skills display */}
