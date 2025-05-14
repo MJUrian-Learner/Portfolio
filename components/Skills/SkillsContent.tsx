@@ -13,11 +13,13 @@ import {
   SelectItem,
 } from "../ui/select";
 
+const allSkills = Object.values(SKILL_CATEGORIES).flatMap((cat) => cat.skills);
+
 const SkillsContent = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.1 });
 
-  const [activeCategory, setActiveCategory] = useState("frontend");
+  const [activeCategory, setActiveCategory] = useState("all");
 
   return (
     <motion.div
@@ -33,22 +35,32 @@ const SkillsContent = () => {
           <SelectTrigger className="w-full max-w-xs py-6 rounded-xl text-lg">
             <SelectValue>
               <span className="flex items-center gap-3 ">
-                {(() => {
-                  const Icon =
-                    SKILL_CATEGORIES[
+                {activeCategory === "all" ? (
+                  <Star size={24} className="text-foreground" />
+                ) : (
+                  (() => {
+                    const Icon =
+                      SKILL_CATEGORIES[
+                        activeCategory as keyof typeof SKILL_CATEGORIES
+                      ].icon;
+                    return <Icon size={24} className="text-foreground" />;
+                  })()
+                )}
+                {activeCategory === "all"
+                  ? "All Tech Stack"
+                  : SKILL_CATEGORIES[
                       activeCategory as keyof typeof SKILL_CATEGORIES
-                    ].icon;
-                  return <Icon size={24} className="text-foreground" />;
-                })()}
-                {
-                  SKILL_CATEGORIES[
-                    activeCategory as keyof typeof SKILL_CATEGORIES
-                  ].title
-                }
+                    ].title}
               </span>
             </SelectValue>
           </SelectTrigger>
           <SelectContent>
+            <SelectItem key="all" value="all" className="text-lg ">
+              <span className="flex items-center gap-3">
+                <Star size={20} className="text-foreground" />
+                All Tech Stack
+              </span>
+            </SelectItem>
             {Object.entries(SKILL_CATEGORIES).map(([key, category]) => (
               <SelectItem key={key} value={key} className="text-lg ">
                 <span className="flex items-center gap-3">
@@ -70,11 +82,11 @@ const SkillsContent = () => {
               exit={{ opacity: 0, x: -20 }}
               className="text-muted-foreground"
             >
-              {
-                SKILL_CATEGORIES[
-                  activeCategory as keyof typeof SKILL_CATEGORIES
-                ].description
-              }
+              {activeCategory === "all"
+                ? "A comprehensive overview of all technologies and tools in my stack."
+                : SKILL_CATEGORIES[
+                    activeCategory as keyof typeof SKILL_CATEGORIES
+                  ].description}
             </motion.p>
           </AnimatePresence>
         </div>
@@ -90,9 +102,11 @@ const SkillsContent = () => {
           transition={{ duration: 0.5 }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         >
-          {SKILL_CATEGORIES[
-            activeCategory as keyof typeof SKILL_CATEGORIES
-          ].skills.map((skill, index) => (
+          {(activeCategory === "all"
+            ? allSkills
+            : SKILL_CATEGORIES[activeCategory as keyof typeof SKILL_CATEGORIES]
+                .skills
+          ).map((skill, index) => (
             <motion.div
               key={skill.name}
               initial={{ opacity: 0, y: 20 }}
