@@ -4,7 +4,6 @@ import { SKILL_CATEGORIES } from "@/constants";
 import { Star } from "lucide-react";
 import { AnimatePresence, motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
-import { Badge } from "../ui/badge";
 import {
   Select,
   SelectTrigger,
@@ -12,14 +11,41 @@ import {
   SelectContent,
   SelectItem,
 } from "../ui/select";
+import SkillCard from "./SkillCard";
 
 const allSkills = Object.values(SKILL_CATEGORIES).flatMap((cat) => cat.skills);
+
+// Define Skill type based on SKILL_CATEGORIES structure
+export type Skill = {
+  name: string;
+  icon: string;
+  level: number;
+  description: string;
+  projects: string[];
+};
 
 const SkillsContent = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.1 });
 
   const [activeCategory, setActiveCategory] = useState("all");
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+
+  // Helper to split skills into 3 columns
+  function splitIntoColumns(skills: Skill[], numCols: number) {
+    const cols: Skill[][] = Array.from({ length: numCols }, () => []);
+    skills.forEach((skill, i) => {
+      cols[i % numCols].push(skill);
+    });
+    return cols;
+  }
+
+  const skillsToShow =
+    activeCategory === "all"
+      ? allSkills
+      : SKILL_CATEGORIES[activeCategory as keyof typeof SKILL_CATEGORIES]
+          .skills;
+  const columns = splitIntoColumns(skillsToShow, 3);
 
   return (
     <motion.div
@@ -94,98 +120,20 @@ const SkillsContent = () => {
 
       {/* Skills display */}
       <AnimatePresence mode="wait">
-        <motion.div
-          key={activeCategory}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-        >
-          {(activeCategory === "all"
-            ? allSkills
-            : SKILL_CATEGORIES[activeCategory as keyof typeof SKILL_CATEGORIES]
-                .skills
-          ).map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className={`relative group bg-background backdrop-blur-sm border border-border rounded-xl overflow-hidden transition-all duration-300`}
-            >
-              {/* Skill card front */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-foreground font-bold`}
-                    >
-                      <span>{skill.icon}</span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground">
-                      {skill.name}
-                    </h3>
-                  </div>
-                  <div className="flex items-center">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        size={14}
-                        className={`${
-                          star <= Math.round(skill.level / 20)
-                            ? "text-primary"
-                            : "text-muted-foreground"
-                        }`}
-                        fill={
-                          star <= Math.round(skill.level / 20)
-                            ? "currentColor"
-                            : "none"
-                        }
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Skill level bar */}
-                <div className="w-full h-1.5 bg-primary/30 rounded-full mb-4 overflow-hidden">
-                  <motion.div
-                    className={`h-full bg-primary`}
-                    initial={{ width: 0 }}
-                    animate={{ width: `${skill.level}%` }}
-                    transition={{
-                      delay: index * 0.1 + 0.3,
-                      duration: 1,
-                      ease: "easeOut",
-                    }}
-                  />
-                </div>
-
-                {/* Skill description */}
-                <p className="text-sm text-muted-foreground mb-4">
-                  {skill.description}
-                </p>
-
-                {/* Projects */}
-                <div className="space-y-2">
-                  <h4 className="text-xs uppercase tracking-wider text-muted-foreground">
-                    Related Projects
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {skill.projects.map((project) => (
-                      <Badge key={project}>{project}</Badge>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Hover effect */}
-                <div
-                  className={`absolute bottom-0 left-0 right-0 h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+        <div className="flex flex-row gap-4 sm:gap-6">
+          {columns.map((col, colIdx) => (
+            <div key={colIdx} className="flex-1 flex flex-col gap-4 sm:gap-6">
+              {col.map((skill) => (
+                <SkillCard
+                  key={skill.name}
+                  skill={skill}
+                  hoveredSkill={hoveredSkill}
+                  setHoveredSkill={setHoveredSkill}
                 />
-              </div>
-            </motion.div>
+              ))}
+            </div>
           ))}
-        </motion.div>
+        </div>
       </AnimatePresence>
     </motion.div>
   );
