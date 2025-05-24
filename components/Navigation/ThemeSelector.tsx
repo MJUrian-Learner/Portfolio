@@ -54,7 +54,11 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
 
   return (
     <div className={`flex items-center ${className}`} {...props}>
-      <DropdownMenu open={themeMenuOpen} onOpenChange={handleThemeMenuOpen}>
+      <DropdownMenu
+        open={themeMenuOpen}
+        onOpenChange={handleThemeMenuOpen}
+        modal={false}
+      >
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
@@ -95,7 +99,11 @@ const ThemeSelector: React.FC<ThemeSelectorProps> = ({
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <DropdownMenu open={colorMenuOpen} onOpenChange={handleColorMenuOpen}>
+      <DropdownMenu
+        open={colorMenuOpen}
+        onOpenChange={handleColorMenuOpen}
+        modal={false}
+      >
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
