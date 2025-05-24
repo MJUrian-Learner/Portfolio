@@ -14,7 +14,7 @@ const SocialButton = ({ ...props }: SocialButtonProps) => {
         variant="outline"
         size="icon"
         // Hacky solution to make the button always have white background
-        className="rounded-full lg:w-12 lg:h-12 relative hover:bg-white bg-white border-none"
+        className="rounded-full lg:w-12 lg:h-12 relative hover:bg-white bg-white border-none hover:cursor-pointer"
       >
         <Image
           src={props.logoLink}
