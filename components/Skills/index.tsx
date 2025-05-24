@@ -4,7 +4,7 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 import { motion } from "motion/react";
 import ScrollDownButton from "../ScrollDownButton";
 import SectionHeading from "../SectionHeading";
-import InteractiveSkillsShowcase from "./SkillsContent";
+import SkillsContent from "./SkillsContent";
 
 const Skills = () => {
   const { setActiveSection } = useActiveSection();
@@ -26,7 +26,7 @@ const Skills = () => {
 
       <div className="container px-4 md:px-6 relative z-10">
         <SectionHeading position="left">Tech Expertise</SectionHeading>
-        <InteractiveSkillsShowcase />
+        <SkillsContent />
       </div>
 
       <ScrollDownButton to="#projects" item="projects" />

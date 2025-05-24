@@ -310,6 +310,10 @@ export const SKILL_CATEGORIES: SkillCategoryRecord = {
   },
 };
 
+export const ALL_SKILLS = Object.values(SKILL_CATEGORIES).flatMap(
+  (cat) => cat.skills
+);
+
 export const CATEGORIES = [
   { id: "all", label: "All Projects" },
   { id: "web", label: "Web Development" },
