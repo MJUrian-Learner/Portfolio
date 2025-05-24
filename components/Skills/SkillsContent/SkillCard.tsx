@@ -28,7 +28,7 @@ const SkillCard = ({ skill }: SkillCardProps) => {
         <CardTitle className="flex items-center justify-between w-full">
           <div className="flex items-center gap-3">
             <div
-              className="w-10 h-10 rounded-lg flex items-center justify-center text-foreground font-bold bg-gradient-to-br from-primary to-primary-foreground"
+              className="w-10 h-10 rounded-lg flex items-center justify-center text-foreground font-bold bg-gradient-to-br from-primary to-primary/50"
               aria-label={`${skill.name} technology icon`}
             >
               <span>{skill.icon}</span>
