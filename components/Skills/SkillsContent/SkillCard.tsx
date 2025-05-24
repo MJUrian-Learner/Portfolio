@@ -24,7 +24,7 @@ const SkillCard = ({ skill }: SkillCardProps) => {
 
   return (
     <Card className="relative group bg-background backdrop-blur-sm border border-border rounded-xl overflow-hidden transition-all duration-300 gap-0">
-      <CardHeader>
+      <CardHeader className="gap-0">
         <CardTitle className="flex items-center justify-between w-full">
           <div className="flex items-center gap-3">
             <div
@@ -33,7 +33,9 @@ const SkillCard = ({ skill }: SkillCardProps) => {
             >
               <span>{skill.icon}</span>
             </div>
-            <h3 className="tracking-wide text-foreground">{skill.name}</h3>
+            <h3 className="text-sm xl:text-base text-tracking-wide text-foreground">
+              {skill.name}
+            </h3>
           </div>
 
           <Button

@@ -19,11 +19,11 @@ const parentVariants = {
     height: "auto",
     opacity: 1,
     transition: {
-      duration: 0.5, // Smooth open
+      duration: 0.64, // Smooth open
       ease: "easeInOut",
       when: "beforeChildren", // Parent animates before children
-      delayChildren: 0.01, // Small delay before children start
-      staggerChildren: 0.07, // Stagger children for a nice cascade
+      delayChildren: 0.1, // Small delay before children start
+      staggerChildren: 0.15, // Stagger children for a nice cascade
     },
   },
   closed: {
@@ -31,10 +31,10 @@ const parentVariants = {
     height: 0,
     opacity: 0,
     transition: {
-      duration: 0.32, // Smooth close
+      duration: 0.64, // Smooth close
       ease: "easeInOut",
       when: "afterChildren", // Parent waits for children to finish exit
-      staggerChildren: 0.05, // Stagger children exit
+      staggerChildren: 0.15, // Stagger children exit
       staggerDirection: -1, // Stagger in reverse order on close
     },
   },
@@ -53,8 +53,6 @@ const childVariants = {
     transition: { duration: 0.18, type: "easeInOut" },
   },
 };
-
-const MAX_SKILLS_ON_SCREEN = 9; // Number of skills to show before 'Show More' is needed
 
 const SkillsContent = () => {
   // Ref for in-view animation
@@ -89,15 +87,25 @@ const SkillsContent = () => {
     [activeCategory]
   );
 
+  const numOfSkillsToShow = useMemo(() => {
+    if (isDesktop) {
+      return 9;
+    } else if (isTablet) {
+      return 6;
+    } else {
+      return 3;
+    }
+  }, [isDesktop, isTablet]);
+
   // Split skills into first set (always shown) and second set (shown on 'Show More')
   const firstSet = useMemo(
-    () => skillsToShow.slice(0, MAX_SKILLS_ON_SCREEN),
-    [skillsToShow]
+    () => skillsToShow.slice(0, numOfSkillsToShow),
+    [skillsToShow, numOfSkillsToShow]
   );
-  const hasMore = skillsToShow.length > MAX_SKILLS_ON_SCREEN;
+  const hasMore = skillsToShow.length > numOfSkillsToShow;
   const secondSet = useMemo(
-    () => (hasMore ? skillsToShow.slice(MAX_SKILLS_ON_SCREEN) : []),
-    [skillsToShow, hasMore]
+    () => (hasMore ? skillsToShow.slice(numOfSkillsToShow) : []),
+    [skillsToShow, hasMore, numOfSkillsToShow]
   );
 
   // Update columns when skills or layout changes
