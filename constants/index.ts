@@ -1,4 +1,15 @@
-import { Code, Database, Globe, Layers, Paintbrush, Palette, Smartphone, Wrench, Zap } from "lucide-react";
+import { SkillCategoryRecord } from "@/types/global";
+import {
+  Code,
+  Database,
+  Globe,
+  Layers,
+  Paintbrush,
+  Palette,
+  Smartphone,
+  Wrench,
+  Zap,
+} from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
 export const NAVIGATION_MENU = [
@@ -75,7 +86,7 @@ export const COLOR_THEMES = {
   },
 };
 
-export const SKILL_CATEGORIES = {
+export const SKILL_CATEGORIES: SkillCategoryRecord = {
   frontend: {
     icon: Code,
     title: "Frontend Development",
@@ -85,7 +96,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "React",
         icon: "⚛️",
-        level: 90,
+        confidence_level: "Beginner",
         description:
           "Building complex component-based UIs with React hooks and context API.",
         projects: ["Portfolio Website", "E-commerce Platform", "Dashboard UI"],
@@ -93,7 +104,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "Next.js",
         icon: "▲",
-        level: 85,
+        confidence_level: "Intermediate",
         description:
           "Developing server-rendered React applications with optimized performance.",
         projects: ["Corporate Website", "Blog Platform", "Marketing Site"],
@@ -101,7 +112,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "TypeScript",
         icon: "TS",
-        level: 80,
+        confidence_level: "Intermediate",
         description:
           "Writing type-safe code to reduce bugs and improve developer experience.",
         projects: ["Financial Dashboard", "API Integration", "Form Library"],
@@ -109,14 +120,14 @@ export const SKILL_CATEGORIES = {
       {
         name: "Tailwind CSS",
         icon: "🌊",
-        level: 95,
+        confidence_level: "Advanced",
         description: "Creating custom designs with utility-first CSS approach.",
         projects: ["Design System", "Marketing Pages", "Admin Dashboard"],
       },
       {
         name: "JavaScript",
         icon: "JS",
-        level: 90,
+        confidence_level: "Advanced",
         description:
           "Implementing complex logic and interactive features with modern JavaScript.",
         projects: [
@@ -128,7 +139,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "Framer Motion",
         icon: "🔄",
-        level: 75,
+        confidence_level: "Beginner",
         description:
           "Creating fluid animations and transitions for enhanced user experience.",
         projects: ["Product Showcase", "Interactive Tutorial", "Mobile App UI"],
@@ -144,7 +155,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "Node.js",
         icon: "🟢",
-        level: 85,
+        confidence_level: "Intermediate",
         description:
           "Creating scalable server-side applications with JavaScript.",
         projects: ["REST API", "Authentication Service", "Payment Gateway"],
@@ -152,7 +163,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "Express",
         icon: "🚂",
-        level: 80,
+        confidence_level: "Intermediate",
         description:
           "Building flexible web applications and APIs with minimal overhead.",
         projects: ["E-commerce Backend", "Content API", "User Management"],
@@ -160,14 +171,14 @@ export const SKILL_CATEGORIES = {
       {
         name: "MongoDB",
         icon: "🍃",
-        level: 75,
+        confidence_level: "Advanced",
         description: "Designing and implementing NoSQL database solutions.",
         projects: ["Content Management", "User Profiles", "Analytics Platform"],
       },
       {
         name: "PostgreSQL",
         icon: "🐘",
-        level: 70,
+        confidence_level: "Advanced",
         description:
           "Working with relational databases for data-intensive applications.",
         projects: [
@@ -179,7 +190,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "GraphQL",
         icon: "◢",
-        level: 65,
+        confidence_level: "Beginner",
         description:
           "Creating flexible APIs with precise data fetching capabilities.",
         projects: [
@@ -199,7 +210,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "UI/UX Design",
         icon: "🎨",
-        level: 85,
+        confidence_level: "Intermediate",
         description:
           "Creating intuitive and aesthetically pleasing user interfaces.",
         projects: [
@@ -211,7 +222,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "Figma",
         icon: "F",
-        level: 90,
+        confidence_level: "Advanced",
         description: "Designing and prototyping interfaces collaboratively.",
         projects: [
           "E-commerce Prototype",
@@ -222,7 +233,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "Adobe XD",
         icon: "Xd",
-        level: 75,
+        confidence_level: "Advanced",
         description:
           "Creating interactive prototypes and design specifications.",
         projects: ["Marketing Website", "Dashboard UI", "Mobile App Design"],
@@ -230,7 +241,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "Motion Design",
         icon: "🎬",
-        level: 70,
+        confidence_level: "Beginner",
         description:
           "Designing animations and transitions for enhanced user experience.",
         projects: [
@@ -250,7 +261,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "Git & GitHub",
         icon: "🔄",
-        level: 90,
+        confidence_level: "Advanced",
         description:
           "Managing code versions and collaborating with development teams.",
         projects: [
@@ -262,7 +273,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "VS Code",
         icon: "📝",
-        level: 95,
+        confidence_level: "Advanced",
         description:
           "Leveraging editor extensions and customizations for productivity.",
         projects: [
@@ -274,7 +285,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "Docker",
         icon: "🐳",
-        level: 75,
+        confidence_level: "Beginner",
         description:
           "Containerizing applications for consistent development and deployment.",
         projects: [
@@ -286,7 +297,7 @@ export const SKILL_CATEGORIES = {
       {
         name: "CI/CD",
         icon: "🔄",
-        level: 80,
+        confidence_level: "Intermediate",
         description:
           "Automating testing and deployment processes for reliable delivery.",
         projects: [
@@ -299,7 +310,7 @@ export const SKILL_CATEGORIES = {
   },
 };
 
-export const CaTEGORIES = [
+export const CATEGORIES = [
   { id: "all", label: "All Projects" },
   { id: "web", label: "Web Development" },
   { id: "data", label: "Data Visualization" },
@@ -709,7 +720,7 @@ export const BLOG_POSTS = [
 export const SERVICES = [
   {
     icon: Code as LucideIcon,
-    title: "Web Development", 
+    title: "Web Development",
     description:
       "Custom websites built with modern frameworks and technologies that deliver exceptional user experiences.",
     tags: ["React", "Next.js", "TypeScript"],

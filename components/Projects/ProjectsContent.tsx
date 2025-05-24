@@ -1,6 +1,6 @@
 "use client";
 
-import { CaTEGORIES, PROJECTS } from "@/constants";
+import { CATEGORIES, PROJECTS } from "@/constants";
 import {
   Check,
   Code,
@@ -55,7 +55,7 @@ const ProjectsContent = () => {
               </span>
             </div>
             <div className="flex flex-wrap gap-2">
-              {CaTEGORIES.map((category) => (
+              {CATEGORIES.map((category) => (
                 <Button
                   variant="outline"
                   size="sm"
