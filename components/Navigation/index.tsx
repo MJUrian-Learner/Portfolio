@@ -89,7 +89,7 @@ const Navigation = () => {
                   </ColorThemeProvider>
                 </span>
                 <span className="-ml-1 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 tracking-wider">
-                  Portfolio
+                  Urian
                 </span>
               </Link>
               {/* Desktop Menu */}
