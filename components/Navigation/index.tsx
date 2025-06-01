@@ -88,7 +88,7 @@ const Navigation = () => {
                     <PortfolioLogo className="w-12 h-12" />
                   </ColorThemeProvider>
                 </span>
-                <span className="-ml-1 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 tracking-wider">
+                <span className="-ml-1 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70 tracking-widest">
                   Urian
                 </span>
               </Link>
