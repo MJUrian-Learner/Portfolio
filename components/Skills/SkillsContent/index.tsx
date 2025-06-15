@@ -19,11 +19,11 @@ const parentVariants = {
     height: "auto",
     opacity: 1,
     transition: {
-      duration: 0.64, // Smooth open
+      duration: 0.3, // Smooth open
       ease: "easeInOut",
       when: "beforeChildren", // Parent animates before children
-      delayChildren: 0.1, // Small delay before children start
-      staggerChildren: 0.15, // Stagger children for a nice cascade
+      delayChildren: 0.05, // Small delay before children start
+      staggerChildren: 0.05, // Stagger children for a nice cascade
     },
   },
   closed: {
@@ -31,10 +31,10 @@ const parentVariants = {
     height: 0,
     opacity: 0,
     transition: {
-      duration: 0.64, // Smooth close
+      duration: 0.3, // Smooth close
       ease: "easeInOut",
       when: "afterChildren", // Parent waits for children to finish exit
-      staggerChildren: 0.15, // Stagger children exit
+      staggerChildren: 0.05, // Stagger children exit
       staggerDirection: -1, // Stagger in reverse order on close
     },
   },
